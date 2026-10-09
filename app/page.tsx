@@ -1,106 +1,164 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-[#13181B]">
-      <Header />
+      <Header dark />
 
-      <section className="grid min-h-[78vh] items-center gap-10 px-8 py-16 md:px-14 lg:grid-cols-2 lg:px-20">
-        <div className="max-w-2xl">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.28em] text-[#FD8973]">
-            Strategy / Systems / Execution
-          </p>
+      {/* HERO */}
+      <section className="relative min-h-[100svh] overflow-hidden bg-[#07131D] text-white lg:min-h-[84vh]">
 
-          <h1 className="text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            Growth Starts{" "}
-            <span className="text-[#FD8973]">Here.</span>
-          </h1>
+{/* Composed ROWTH visual */}
+<div
+  className="absolute inset-0 bg-cover bg-[74%_center] bg-no-repeat sm:bg-[70%_center] lg:bg-[66%_center]"
+  style={{
+    backgroundImage: "url('/rowth-hero-dark.png')",
+  }}
+/>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-[#5F6B73]">
-            We help ambitious companies turn strategy into measurable growth
-            through search, data, technology, and execution.
-          </p>
+{/* Text readability */}
+<div className="absolute inset-0 bg-gradient-to-r from-[#07131D] via-[#07131D]/82 to-transparent" />
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="rounded-full bg-[#FD8973] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-            >
-              Let&apos;s Talk
-            </a>
+{/* Subtle bottom depth */}
+<div className="absolute inset-x-0 bottom-0 h-[180px] bg-gradient-to-t from-[#07131D]/70 to-transparent" />
 
-            <a
-              href="/services"
-              className="rounded-full border border-[#13181B]/20 px-6 py-3 text-sm font-semibold transition hover:bg-[#F0EEEB]"
-            >
-              Explore Our Services
-            </a>
-          </div>
-        </div>
+{/* Content */}
+<div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-6 pb-14 pt-28 sm:pb-16 sm:pt-32 md:px-14 lg:min-h-[84vh] lg:px-20 lg:py-20">
+  <div className="max-w-[720px]">
 
-        {/* ROWTH Hero Visual */}
-<div className="relative hidden min-h-[460px] overflow-hidden rounded-[32px] bg-[#F0EEEB] lg:flex">
-  {/* Mountain image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/rowth-mountain.png')",
-    }}
-  />
+    {/* Accent */}
+    <div className="mb-7 h-[2px] w-12 bg-gradient-to-r from-[#FD8973] to-[#FFB565]" />
 
-  {/* Soft brand overlay */}
-  <div className="absolute inset-0 bg-gradient-to-r from-[#F0EEEB]/95 via-[#F0EEEB]/40 to-transparent" />
+    {/* Eyebrow */}
+    <p className="mb-7 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/75">
+      Strategy
+      <span className="mx-2 text-[#FD8973]">×</span>
+      Systems
+      <span className="mx-2 text-[#FD8973]">×</span>
+      Growth
+    </p>
 
-  {/* Subtle W structure */}
-  <div className="absolute inset-0 flex items-center justify-center opacity-90">
-    <div className="relative h-[310px] w-[360px]">
-      <div className="absolute left-[40px] top-[40px] h-[230px] w-[78px] -skew-x-[24deg] bg-white/28 backdrop-blur-[2px]" />
+    {/* Headline */}
+    <h1 className="text-[52px] font-medium leading-[0.9] tracking-[-0.055em] sm:text-[64px] md:text-[84px] lg:text-[102px]">
+      Focus on
+      <br />
 
-      <div className="absolute left-[128px] top-[82px] h-[190px] w-[72px] skew-x-[24deg] bg-[#FD8973]/28 backdrop-blur-[2px]" />
+      <span className="bg-gradient-to-r from-[#FD6F5F] to-[#FFB565] bg-clip-text text-transparent">
+        Growth.
+      </span>
+    </h1>
 
-      <div className="absolute left-[205px] top-[30px] h-[240px] w-[78px] -skew-x-[24deg] bg-[#FFB565]/28 backdrop-blur-[2px]" />
+    {/* Supporting headline */}
+    <p className="mt-7 max-w-[560px] text-lg leading-[1.4] tracking-[-0.02em] text-white/90 sm:text-xl md:text-2xl">
+      A higher standard for measurable growth.
+    </p>
+
+    {/* Description */}
+    <p className="mt-4 max-w-[540px] text-[15px] leading-7 text-white/65 sm:text-base">
+      We connect data, technology, automation, and growth channels
+      into systems that move revenue forward.
+    </p>
+
+    {/* CTAs */}
+    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+      <a
+        href="/contact"
+        className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-white transition hover:opacity-90"
+      >
+        Let&apos;s Talk →
+      </a>
+
+      <a
+        href="/services"
+        className="inline-flex items-center justify-center rounded-full border border-white/45 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#13181B]"
+      >
+        Explore Services
+      </a>
     </div>
-  </div>
 
-  {/* Bottom content card */}
-  <div className="absolute bottom-8 left-8 right-8 rounded-[24px] border border-white/60 bg-white/90 px-7 py-6 backdrop-blur-md">
-    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#003A6C]">
-      ROWTH
-    </p>
+    {/* Revenue Flow */}
+    <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.17em] text-white/70 sm:text-[11px]">
+      <span>Lead</span>
+      <span className="text-[#FD8973]">→</span>
 
-    <p className="mt-3 text-xl font-semibold leading-snug tracking-[-0.025em] text-[#13181B]">
-      Strategy that moves business forward.
-    </p>
-  </div>
+      <span>Call</span>
+      <span className="text-[#FD8973]">→</span>
+
+      <span>CRM</span>
+      <span className="text-[#FD8973]">→</span>
+      <span>Revenue</span>
+    </div>
+</div>
 </div>
 </section>
 
-      <section className="grid gap-8 border-t border-[#E5E7EB] px-8 py-10 md:grid-cols-3 md:px-14 lg:px-20">
-        <div>
-          <p className="text-sm font-semibold text-[#FD8973]">01</p>
-          <h2 className="mt-2 text-xl font-semibold">Strategy</h2>
-          <p className="mt-2 text-sm leading-6 text-[#5F6B73]">
-            Clear priorities tied to real business outcomes.
-          </p>
-        </div>
+      {/* Hero Transition */}
+      <section className="relative overflow-hidden border-b border-[#13181B]/10 bg-white px-6 py-12 md:px-14 lg:px-20">
+  {/* ROWTH W mark */}
+  <div className="pointer-events-none absolute right-[20px] top-1/2 hidden -translate-y-1/2 lg:block">
+  <Image
+    src="/rowth-w-mark-v2.png"
+    alt=""
+    width={280}
+    height={200}
+    className="h-auto w-[240px] opacity-[0.08]"
+  />
+</div>
 
-        <div>
-          <p className="text-sm font-semibold text-[#FD8973]">02</p>
-          <h2 className="mt-2 text-xl font-semibold">Systems</h2>
-          <p className="mt-2 text-sm leading-6 text-[#5F6B73]">
-            Data, tracking, automation, and infrastructure that scale.
-          </p>
-        </div>
+  <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    {/* Copy */}
+    <div>
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-px w-7 bg-[#FD8973]" />
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#13181B]/45">
+          Built around the full growth system
+        </p>
+      </div>
 
-        <div>
-          <p className="text-sm font-semibold text-[#FD8973]">03</p>
-          <h2 className="mt-2 text-xl font-semibold">Execution</h2>
-          <p className="mt-2 text-sm leading-6 text-[#5F6B73]">
-            Hands-on implementation that turns strategy into results.
-          </p>
-        </div>
-      </section>
+      <p className="max-w-xl text-lg leading-7 text-[#13181B]/75">
+        From tracking and automation to search, paid media, and conversion.
+      </p>
+    </div>
+
+    {/* System Tags */}
+    <div className="relative">
+      {/* Connector line */}
+    <div className="absolute left-0 right-[240px] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-[#FD8973]/20 via-[#13181B]/10 to-[#FFB565]/25 lg:block" />
+
+      <div className="relative flex flex-wrap gap-2">
+        {[
+          { label: "Tracking", accent: true },
+          { label: "Automation", accent: true },
+          { label: "Web", accent: false },
+          { label: "SEO", accent: false },
+          { label: "Paid", accent: false },
+          { label: "Strategy", accent: false },
+        ].map((item) => (
+          <span
+            key={item.label}
+            className={`rounded-full border px-4 py-2 text-xs font-medium backdrop-blur-sm ${
+              item.accent
+                ? "border-[#FD8973]/25 bg-[#FD8973]/8 text-[#13181B]"
+                : "border-[#13181B]/10 bg-white/85 text-[#13181B]/65"
+            }`}
+          >
+            {item.label}
+          </span>
+        ))}
+
+          {/* Mobile brand accent */}
+  <div className="mt-6 flex items-center gap-3 lg:hidden">
+    <span className="h-px w-8 bg-[#FD8973]" />
+    <span className="h-px w-8 bg-[#FFB565]" />
+    <span className="h-px w-8 bg-[#003A6C]/40" />
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
       {/* Services */}
 <section
   id="services"
@@ -131,69 +189,149 @@ export default function Home() {
       </div>
     </div>
 
-    {/* Services List */}
-    <div>
-      {[
-        {
-          number: "01",
-          title: "SEO & Search Growth",
-          description:
-            "Increase visibility, traffic, and qualified demand through strategic SEO.",
-        },
-        {
-          number: "02",
-          title: "Paid Media",
-          description:
-            "Drive high-intent leads across Google, Meta, LinkedIn, and more.",
-        },
-        {
-          number: "03",
-          title: "Tracking & Attribution",
-          description:
-            "Turn data into clarity and make smarter growth decisions.",
-        },
-        {
-          number: "04",
-          title: "Web & CRO",
-          description:
-            "Build high-performing digital experiences designed to convert.",
-        },
-        {
-          number: "05",
-          title: "Automation & AI",
-          description:
-            "Streamline operations and create systems that scale efficiently.",
-        },
-        {
-          number: "06",
-          title: "Growth Strategy",
-          description:
-            "Align marketing, technology, and revenue around long-term growth.",
-        },
-      ].map((service) => (
-        <a
-          key={service.number}
-          href="#contact"
-          className="group grid gap-5 border-b border-[#13181B]/10 py-7 transition-colors hover:bg-[#F0EEEB]/45 md:grid-cols-[70px_1fr_1fr_40px] md:items-center md:px-4"
-        >
-          <span className="text-xs font-semibold tracking-[0.15em] text-[#FD8973]">
-            {service.number}
-          </span>
+    {/* Services Grid */}
+<div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+  {[
+    {
+      number: "01",
+      title: "Tracking & Attribution",
+      description:
+        "Connect marketing activity to measurable business outcomes and understand what actually drives growth.",
+      label: "Measurement",
+      style:
+        "border-[#003A6C]/15 bg-gradient-to-br from-[#EAF1F5] via-white to-[#CCD5DA]/45",
+      dot: "bg-[#003A6C]",
+      featured: true,
+    },
+    {
+      number: "02",
+      title: "Automation & AI",
+      description:
+        "Build smarter workflows and connected systems that reduce friction and scale efficiently.",
+      label: "Systems",
+      style:
+        "border-[#FD8973]/20 bg-gradient-to-br from-[#FFF2EE] via-[#FFF7F2] to-[#FFB565]/20",
+      dot: "bg-[#FD8973]",
+      featured: true,
+    },
+    {
+      number: "03",
+      title: "Web & CRO",
+      description:
+        "Create high-performing digital experiences designed to turn attention into action.",
+      label: "Experience",
+      style:
+        "border-[#13181B]/10 bg-gradient-to-br from-white to-[#F0EEEB]/70",
+      dot: "bg-[#13181B]",
+      featured: false,
+    },
+    {
+      number: "04",
+      title: "SEO & Search Growth",
+      description:
+        "Build sustainable visibility and qualified demand through strategic search growth.",
+      label: "Demand",
+      style:
+        "border-[#FFB565]/20 bg-gradient-to-br from-white via-[#FFF9F1] to-[#FFB565]/16",
+      dot: "bg-[#FFB565]",
+      featured: false,
+    },
+    {
+      number: "05",
+      title: "Paid Media",
+      description:
+        "Activate high-intent demand across paid channels with clear measurement and accountability.",
+      label: "Acquisition",
+      style:
+        "border-[#FD8973]/15 bg-gradient-to-br from-white to-[#FD8973]/10",
+      dot: "bg-[#FFB565]",
+      featured: false,
+    },
+    {
+      number: "06",
+      title: "Growth Strategy",
+      description:
+        "Align data, technology, channels, and execution around the opportunities that matter most.",
+      label: "Direction",
+      style:
+        "border-[#13181B]/10 bg-gradient-to-br from-[#13181B] to-[#003A6C]",
+      dot: "bg-[#FFB565]",
+      dark: true,
+      featured: false,
+    },
+  ].map((service) => (
+    <a
+      key={service.number}
+      href="/services"
+      className={`group relative min-h-[250px] overflow-hidden rounded-[28px] border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(19,24,27,0.09)] ${service.style}`}
+    >
+      {/* Soft glow */}
+      {service.featured && (
+        <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-white/60 blur-3xl" />
+      )}
 
-          <h3 className="text-lg font-semibold tracking-[-0.02em] text-[#13181B] md:text-xl">
+      {/* Large ghost number */}
+      <span
+        className={`pointer-events-none absolute right-5 top-2 text-[76px] font-semibold leading-none tracking-[-0.07em] ${
+          service.dark ? "text-white/[0.05]" : "text-[#13181B]/[0.035]"
+        }`}
+      >
+        {service.number}
+      </span>
+
+      <div className="relative flex h-full flex-col">
+        {/* Top */}
+        <div className="flex items-center justify-between">
+          <div
+            className={`flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] ${
+              service.dark ? "text-white/45" : "text-[#13181B]/45"
+            }`}
+          >
+            <span className={`h-2 w-2 rounded-full ${service.dot}`} />
+            {service.label}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="mt-auto pt-16">
+          <h3
+            className={`text-xl font-semibold tracking-[-0.025em] ${
+              service.dark ? "text-white" : "text-[#13181B]"
+            }`}
+          >
             {service.title}
           </h3>
 
-          <p className="max-w-md text-sm leading-6 text-[#13181B]/55">
+          <p
+            className={`mt-3 max-w-sm text-sm leading-6 ${
+              service.dark ? "text-white/55" : "text-[#13181B]/55"
+            }`}
+          >
             {service.description}
           </p>
 
-          <span className="hidden text-xl text-[#13181B]/45 transition-transform group-hover:translate-x-1 group-hover:text-[#FD8973] md:block">
-            →
-          </span>
-        </a>
-      ))}
-    </div>
+          <div className="mt-6 flex items-center justify-between">
+            <span
+              className={`text-xs font-semibold ${
+                service.dark ? "text-white/45" : "text-[#13181B]/45"
+              }`}
+            >
+              Explore service
+            </span>
+
+            <span
+              className={`text-lg transition-transform duration-300 group-hover:translate-x-1 ${
+                service.dark ? "text-[#FFB565]" : "text-[#FD8973]"
+              }`}
+            >
+              →
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  ))}
+</div>
 
     {/* Services CTA */}
     <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl bg-[#F0EEEB] px-7 py-8 md:flex-row md:items-center md:px-10">
@@ -209,11 +347,11 @@ export default function Home() {
       </div>
 
       <a
-        href="#contact"
-        className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#13181B] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#003A6C]"
-      >
-        Let&apos;s Talk →
-      </a>
+  href="/contact"
+  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-[#13181B] shadow-[0_14px_30px_rgba(253,137,115,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(253,137,115,0.28)]"
+>
+  Let&apos;s Talk →
+</a>
     </div>
   </div>
 </section>
@@ -221,10 +359,14 @@ export default function Home() {
 {/* Approach */}
 <section
   id="approach"
-  className="bg-[#F0EEEB]/45 px-8 py-24 md:px-14 lg:px-20 lg:py-32"
+  className="relative overflow-hidden bg-[#F0EEEB]/55 px-6 py-20 md:px-14 md:py-24 lg:px-20 lg:py-28"
 >
-  <div className="mx-auto max-w-7xl">
-    {/* Section Header */}
+  {/* Background atmosphere */}
+  <div className="pointer-events-none absolute right-[-120px] top-[-100px] h-[360px] w-[360px] rounded-full bg-[#FFB565]/10 blur-3xl" />
+  <div className="pointer-events-none absolute bottom-[-140px] left-[-100px] h-[320px] w-[320px] rounded-full bg-[#CCD5DA]/30 blur-3xl" />
+
+  <div className="relative mx-auto max-w-7xl">
+    {/* Header */}
     <div className="max-w-3xl">
       <div className="mb-5 flex items-center gap-3">
         <span className="h-px w-7 bg-[#FD8973]" />
@@ -234,220 +376,495 @@ export default function Home() {
         </p>
       </div>
 
-      <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#13181B] md:text-5xl lg:text-6xl">
-        A structured path to measurable growth.
+      <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#13181B] md:text-5xl lg:text-6xl">
+        A structured path to
+        <br className="hidden sm:block" />
+        measurable growth.
       </h2>
 
       <p className="mt-6 max-w-2xl text-base leading-7 text-[#13181B]/60">
-        We combine strategic thinking, data, and hands-on execution to help
-        businesses move from opportunity to real results.
+        We combine strategy, data, technology, and hands-on execution to move
+        from opportunity to measurable results.
       </p>
     </div>
 
-    {/* Approach Steps */}
-    <div className="mt-16 grid border-y border-[#13181B]/10 md:grid-cols-5">
-      {[
-        {
-          number: "01",
-          title: "Understand",
-          description:
-            "We learn about your business, goals, market, and customers.",
-        },
-        {
-          number: "02",
-          title: "Strategize",
-          description:
-            "We identify the highest-impact opportunities based on data and business objectives.",
-        },
-        {
-          number: "03",
-          title: "Build",
-          description:
-            "We implement the strategy across channels, technology, and infrastructure.",
-        },
-        {
-          number: "04",
-          title: "Measure",
-          description:
-            "We track performance and attribute results clearly.",
-        },
-        {
-          number: "05",
-          title: "Improve",
-          description:
-            "We optimize and scale what works for long-term impact.",
-        },
-      ].map((step, index) => (
-        <article
-          key={step.number}
-          className={`py-8 md:px-6 ${
-            index !== 4 ? "md:border-r md:border-[#13181B]/10" : ""
+    {/* Process Cards */}
+<div className="mt-14">
+
+{/* Desktop */}
+<div className="hidden gap-4 md:grid md:grid-cols-5">
+  {[
+    {
+      number: "01",
+      title: "Understand",
+      description:
+        "We learn your business, goals, market, customers, and current growth system.",
+      featured: false,
+    },
+    {
+      number: "02",
+      title: "Strategize",
+      description:
+        "We identify the opportunities, priorities, and systems with the greatest impact.",
+      featured: true,
+    },
+    {
+      number: "03",
+      title: "Build",
+      description:
+        "We implement across technology, channels, automation, and infrastructure.",
+      featured: false,
+    },
+    {
+      number: "04",
+      title: "Measure",
+      description:
+        "We connect activity to performance and measurable business outcomes.",
+      featured: true,
+    },
+    {
+      number: "05",
+      title: "Improve",
+      description:
+        "We optimize what works and build the systems required to scale.",
+      featured: false,
+    },
+  ].map((step) => (
+    <article
+      key={step.number}
+      className={`group relative min-h-[290px] overflow-hidden rounded-[26px] border p-6 transition duration-300 hover:-translate-y-1 ${
+        step.featured
+          ? "border-[#FD8973]/20 bg-[#13181B] text-white shadow-[0_20px_50px_rgba(19,24,27,0.10)]"
+          : "border-[#13181B]/10 bg-white/70 text-[#13181B]"
+      }`}
+    >
+      {/* Glow */}
+      {step.featured && (
+        <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#FD8973]/20 blur-3xl" />
+      )}
+
+      {/* Big ghost number */}
+      <span
+        className={`absolute right-5 top-3 text-[76px] font-semibold leading-none tracking-[-0.07em] ${
+          step.featured ? "text-white/[0.05]" : "text-[#13181B]/[0.04]"
+        }`}
+      >
+        {step.number}
+      </span>
+
+      <div className="relative flex h-full flex-col">
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-full border text-xs font-semibold ${
+            step.featured
+              ? "border-[#FD8973]/60 text-[#FD8973]"
+              : "border-[#13181B]/15 text-[#13181B]/55"
           }`}
         >
-          <span className="text-xs font-semibold tracking-[0.15em] text-[#13181B]/35">
-            {step.number}
-          </span>
+          {step.number}
+        </div>
 
-          <div className="mt-8 mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-[#FD8973]/40 text-sm font-semibold text-[#FD8973]">
-            {step.number}
-          </div>
+        <div className="mt-auto pt-16">
+          <p
+            className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
+              step.featured ? "text-[#FD8973]" : "text-[#003A6C]/50"
+            }`}
+          >
+            Step {step.number}
+          </p>
 
-          <h3 className="text-lg font-semibold tracking-[-0.02em] text-[#13181B]">
+          <h3 className="mt-2 text-xl font-semibold tracking-[-0.025em]">
             {step.title}
           </h3>
 
-          <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
+          <p
+            className={`mt-3 text-sm leading-6 ${
+              step.featured ? "text-white/55" : "text-[#13181B]/55"
+            }`}
+          >
             {step.description}
-          </p>
-        </article>
-      ))}
-    </div>
-
-    {/* Strategy Statement */}
-    <div className="mt-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-      {/* Visual */}
-      <div className="relative min-h-[320px] overflow-hidden rounded-3xl bg-[#13181B]">
-        <div className="absolute left-10 top-12 h-48 w-20 -skew-x-[25deg] bg-[#CCD5DA]/70" />
-
-        <div className="absolute left-28 top-20 h-56 w-20 skew-x-[25deg] bg-linear-to-b from-[#FD8973] to-[#FFB565]" />
-
-        <div className="absolute bottom-8 right-8 max-w-[220px] text-right">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-            ROWTH
-          </p>
-
-          <p className="mt-2 text-lg font-semibold leading-snug text-white">
-            Strategy is only valuable when it gets executed.
           </p>
         </div>
       </div>
+    </article>
+  ))}
+</div>
 
-      {/* Copy */}
-      <div className="lg:pl-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
-          Strategy + Execution
-        </p>
-
-        <h3 className="mt-4 max-w-xl text-3xl font-semibold leading-[1.1] tracking-[-0.035em] text-[#13181B] md:text-4xl">
-          Strategy without execution is just a plan.
-        </h3>
-
-        <p className="mt-5 max-w-xl text-base leading-7 text-[#13181B]/60">
-          We stay involved beyond the strategy phase, working alongside your
-          team to implement, measure, and continuously improve.
-        </p>
-
-        <a
-          href="#contact"
-          className="mt-7 inline-flex items-center justify-center rounded-full bg-[#13181B] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#003A6C]"
+{/* Mobile horizontal experience */}
+<div className="-mx-6 overflow-x-auto px-6 pb-4 md:hidden">
+  <div className="flex w-max snap-x snap-mandatory gap-4">
+    {[
+      {
+        number: "01",
+        title: "Understand",
+        description:
+          "We learn your business, goals, market, customers, and current growth system.",
+      },
+      {
+        number: "02",
+        title: "Strategize",
+        description:
+          "We identify the opportunities and priorities with the greatest impact.",
+      },
+      {
+        number: "03",
+        title: "Build",
+        description:
+          "We implement across technology, channels, automation, and infrastructure.",
+      },
+      {
+        number: "04",
+        title: "Measure",
+        description:
+          "We connect activity to measurable business outcomes.",
+      },
+      {
+        number: "05",
+        title: "Improve",
+        description:
+          "We optimize what works and build the systems required to scale.",
+      },
+    ].map((step, index) => (
+      <article
+        key={step.number}
+        className={`relative w-[78vw] max-w-[310px] shrink-0 snap-start overflow-hidden rounded-[28px] border p-6 ${
+          index === 1 || index === 3
+            ? "border-[#FD8973]/20 bg-[#13181B] text-white"
+            : "border-[#13181B]/10 bg-white/80 text-[#13181B]"
+        }`}
+      >
+        <span
+          className={`absolute right-4 top-2 text-[72px] font-semibold leading-none ${
+            index === 1 || index === 3
+              ? "text-white/[0.05]"
+              : "text-[#13181B]/[0.04]"
+          }`}
         >
-          Let&apos;s Talk About Your Goals →
-        </a>
-      </div>
+          {step.number}
+        </span>
+
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-full border text-xs font-semibold ${
+            index === 1 || index === 3
+              ? "border-[#FD8973]/60 text-[#FD8973]"
+              : "border-[#13181B]/15 text-[#13181B]/55"
+          }`}
+        >
+          {step.number}
+        </div>
+
+        <div className="pt-20">
+          <h3 className="text-2xl font-semibold tracking-[-0.03em]">
+            {step.title}
+          </h3>
+
+          <p
+            className={`mt-3 text-sm leading-6 ${
+              index === 1 || index === 3
+                ? "text-white/55"
+                : "text-[#13181B]/55"
+            }`}
+          >
+            {step.description}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
+
+{/* Mobile cue */}
+<div className="mt-3 flex items-center gap-2 md:hidden">
+  <span className="h-px w-8 bg-[#FD8973]" />
+  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#13181B]/40">
+    Swipe to explore
+  </p>
+</div>
     </div>
   </div>
 </section>
 
-{/* About / Why ROWTH */}
+{/* About ROWTH */}
 <section
   id="about"
-  className="bg-white px-8 py-24 md:px-14 lg:px-20 lg:py-32"
+  className="relative overflow-hidden bg-white px-6 py-20 md:px-14 md:py-28 lg:px-20 lg:py-32"
 >
   <div className="mx-auto max-w-7xl">
-    {/* Top */}
+
     <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
       {/* Copy */}
-      <div>
+      <div className="flex flex-col justify-center lg:pr-10">
         <div className="mb-5 flex items-center gap-3">
           <span className="h-px w-7 bg-[#FD8973]" />
 
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#13181B]/50">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#13181B]/45">
             About ROWTH
           </p>
         </div>
 
-        <h2 className="max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#13181B] md:text-5xl lg:text-6xl">
-          A different kind of growth partner.
+        <h2 className="max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#13181B] md:text-5xl lg:text-6xl">
+          Built around
+          <br />
+          better systems.
         </h2>
 
-        <p className="mt-6 max-w-xl text-base leading-7 text-[#13181B]/60">
-          ROWTH brings strategy, data, technology, and execution together to
-          help ambitious businesses build sustainable, measurable growth.
+        <p className="mt-7 max-w-xl text-base leading-7 text-[#13181B]/60">
+          ROWTH brings strategy, data, technology, and execution together
+          to help ambitious businesses build sustainable, measurable growth.
         </p>
 
         <p className="mt-4 max-w-xl text-base leading-7 text-[#13181B]/60">
-          We don&apos;t stop at recommendations. We work alongside your team to
-          turn ideas into systems, systems into execution, and execution into
-          measurable outcomes.
+          We work beyond recommendations, helping teams connect ideas,
+          systems, and execution into measurable outcomes.
         </p>
 
         <a
           href="/about"
-          className="mt-8 inline-flex items-center justify-center rounded-full border border-[#13181B]/20 px-6 py-3 text-sm font-semibold text-[#13181B] transition hover:border-[#13181B] hover:bg-[#13181B] hover:text-white"
+          className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-[#13181B] shadow-[0_12px_30px_rgba(253,137,115,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(253,137,115,0.24)]"
         >
           Learn More About ROWTH →
         </a>
       </div>
-      </div>
 
+      {/* Brand Visual */}
+      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#F7F5F2] via-[#F0EEEB] to-[#E7ECEF] px-5 py-7 sm:min-h-[460px] sm:px-8 sm:py-8">
 
-    {/* Why ROWTH */}
-    <div className="mt-20 border-t border-[#13181B]/10 pt-12">
-      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#13181B]/45">
-        Why ROWTH
-      </p>
+        {/* Atmosphere */}
+        <div className="pointer-events-none absolute -right-20 -top-20 h-[320px] w-[320px] rounded-full bg-[#FFB565]/20 blur-[100px]" />
 
-      <div className="mt-8 grid gap-0 md:grid-cols-2 lg:grid-cols-4">
-        {[
-          {
-            number: "01",
-            title: "Strategic Thinking",
-            description:
-              "We focus on the decisions and priorities that create real business impact.",
-          },
-          {
-            number: "02",
-            title: "Data-Driven",
-            description:
-              "Every decision is supported by data, measurement, and clear accountability.",
-          },
-          {
-            number: "03",
-            title: "Execution Focused",
-            description:
-              "We move beyond recommendations and help implement what needs to happen.",
-          },
-          {
-            number: "04",
-            title: "Long-Term Partnerships",
-            description:
-              "We grow with our clients, not just for them.",
-          },
-        ].map((item, index) => (
-          <article
-            key={item.number}
-            className={`py-8 ${
-              index !== 3
-                ? "border-b border-[#13181B]/10 lg:border-b-0 lg:border-r"
-                : ""
-            } ${
-              index === 1 ? "md:border-l md:border-[#13181B]/10" : ""
-            } px-0 md:px-7 lg:px-8`}
-          >
-            <span className="text-xs font-semibold tracking-[0.15em] text-[#FD8973]">
-              {item.number}
+        <div className="pointer-events-none absolute -bottom-24 -left-20 h-[300px] w-[300px] rounded-full bg-[#CCD5DA]/45 blur-[90px]" />
+
+        {/* ROWTH W background */}
+        <div className="pointer-events-none absolute -right-16 top-16 opacity-[0.045] sm:-right-14 sm:-top-4 sm:opacity-[0.10]">
+          <Image
+            src="/rowth-w-mark-v2.png"
+            alt=""
+            width={520}
+            height={360}
+            className="h-auto w-[330px] sm:w-[470px]"
+          />
+        </div>
+
+        {/* Desktop heading */}
+        <div className="relative z-10 hidden sm:block">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#003A6C]/55">
+            ROWTH SYSTEM
+          </p>
+
+          <p className="mt-3 max-w-[260px] text-sm leading-6 text-[#13181B]/50">
+            Connecting the pieces behind measurable growth.
+          </p>
+        </div>
+
+        {/* DESKTOP SYSTEM */}
+        <div className="absolute bottom-8 left-8 right-8 z-10 hidden rounded-[28px] border border-white/70 bg-white/80 p-7 shadow-[0_20px_60px_rgba(19,24,27,0.08)] backdrop-blur-xl sm:block">
+
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/60">
+                How ROWTH works
+              </p>
+
+              <h3 className="mt-3 max-w-md text-2xl font-semibold leading-snug tracking-[-0.03em] text-[#13181B]">
+                Connect the pieces that actually move growth.
+              </h3>
+            </div>
+
+            <span className="text-xs font-semibold tracking-[0.18em] text-[#13181B]/25">
+              01 — 03
             </span>
+          </div>
 
-            <h3 className="mt-5 text-lg font-semibold tracking-[-0.02em] text-[#13181B]">
-              {item.title}
-            </h3>
+          <div className="relative mt-7">
+            <div className="absolute left-[12%] right-[12%] top-6 h-[2px] bg-gradient-to-r from-[#003A6C]/25 via-[#FD8973]/45 to-[#FFB565]/50" />
 
-            <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
-              {item.description}
+            <div className="relative grid grid-cols-3 gap-3">
+
+              {/* Data */}
+              <div className="relative overflow-hidden rounded-[22px] border border-[#003A6C]/15 bg-gradient-to-br from-[#EAF1F5] via-white to-[#CCD5DA]/45 px-5 py-5">
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-semibold tracking-[0.18em] text-[#13181B]/35">
+                      01
+                    </span>
+
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#003A6C]" />
+                  </div>
+
+                  <p className="mt-4 text-sm font-semibold text-[#13181B]">
+                    Data
+                  </p>
+
+                  <p className="mt-1 text-xs leading-5 text-[#13181B]/50">
+                    Know what&apos;s happening.
+                  </p>
+                </div>
+              </div>
+
+              {/* Technology */}
+              <div className="relative overflow-hidden rounded-[22px] border border-[#FD8973]/20 bg-gradient-to-br from-[#FD8973] via-[#FF9868] to-[#FFB565] px-5 py-5 shadow-[0_16px_32px_rgba(253,137,115,0.16)]">
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-semibold tracking-[0.18em] text-[#13181B]/40">
+                      02
+                    </span>
+
+                    <span className="h-2.5 w-2.5 rounded-full bg-white/80" />
+                  </div>
+
+                  <p className="mt-4 text-sm font-semibold text-[#13181B]">
+                    Technology
+                  </p>
+
+                  <p className="mt-1 text-xs leading-5 text-[#13181B]/60">
+                    Connect the system.
+                  </p>
+                </div>
+              </div>
+
+              {/* Execution */}
+              <div className="relative overflow-hidden rounded-[22px] border border-[#003A6C]/20 bg-gradient-to-br from-[#003A6C] to-[#13181B] px-5 py-5">
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-semibold tracking-[0.18em] text-white/35">
+                      03
+                    </span>
+
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FFB565]" />
+                  </div>
+
+                  <p className="mt-4 text-sm font-semibold text-white">
+                    Execution
+                  </p>
+
+                  <p className="mt-1 text-xs leading-5 text-white/50">
+                    Turn insight into action.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE SYSTEM */}
+        <div className="relative z-10 sm:hidden">
+
+          <div className="mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#003A6C]/55">
+              ROWTH SYSTEM
             </p>
-          </article>
-        ))}
+
+            <h3 className="mt-3 max-w-[280px] text-2xl font-semibold leading-[1.15] tracking-[-0.035em] text-[#13181B]">
+              Connect the pieces that actually move growth.
+            </h3>
+          </div>
+
+          <div className="mb-4 flex items-center justify-between">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#13181B]/35">
+              Explore the system
+            </p>
+
+            <div className="flex items-center gap-2">
+              <span className="h-px w-6 bg-[#FD8973]" />
+
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#13181B]/30">
+                Swipe →
+              </span>
+            </div>
+          </div>
+
+          {/* Native mobile carousel */}
+          <div className="-mx-5 overflow-x-auto overscroll-x-contain px-5 pb-4 scroll-smooth touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex w-max snap-x snap-mandatory gap-4">
+
+              {/* Data */}
+              <article className="flex min-h-[260px] w-[78vw] max-w-[300px] shrink-0 snap-center flex-col rounded-[28px] border border-[#003A6C]/15 bg-gradient-to-br from-[#F3F8FA] via-white to-[#DDE7EC] p-6 shadow-[0_16px_40px_rgba(19,24,27,0.07)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold tracking-[0.2em] text-[#13181B]/35">
+                    01
+                  </span>
+
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#003A6C]" />
+                </div>
+
+                <div className="mt-auto">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/50">
+                    Measurement
+                  </p>
+
+                  <h4 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-[#13181B]">
+                    Data
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
+                    Know what&apos;s happening and where growth is coming from.
+                  </p>
+                </div>
+              </article>
+
+              {/* Technology */}
+              <article className="flex min-h-[260px] w-[78vw] max-w-[300px] shrink-0 snap-center flex-col rounded-[28px] border border-[#FD8973]/20 bg-gradient-to-br from-[#FD8973] via-[#FF9868] to-[#FFB565] p-6 shadow-[0_18px_42px_rgba(253,137,115,0.16)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold tracking-[0.2em] text-[#13181B]/40">
+                    02
+                  </span>
+
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/80" />
+                </div>
+
+                <div className="mt-auto">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#13181B]/45">
+                    Systems
+                  </p>
+
+                  <h4 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-[#13181B]">
+                    Technology
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-6 text-[#13181B]/60">
+                    Connect the systems that turn information into action.
+                  </p>
+                </div>
+              </article>
+
+              {/* Execution */}
+              <article className="flex min-h-[260px] w-[78vw] max-w-[300px] shrink-0 snap-center flex-col rounded-[28px] border border-white/10 bg-gradient-to-br from-[#003A6C] to-[#13181B] p-6 shadow-[0_18px_42px_rgba(0,58,108,0.16)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold tracking-[0.2em] text-white/35">
+                    03
+                  </span>
+
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FFB565]" />
+                </div>
+
+                <div className="mt-auto">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFB565]/70">
+                    Outcomes
+                  </p>
+
+                  <h4 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-white">
+                    Execution
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-6 text-white/55">
+                    Turn strategy into measurable business outcomes.
+                  </p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div className="mt-3 flex items-center gap-2">
+            <span className="h-1.5 w-8 rounded-full bg-[#13181B]" />
+            <span className="h-1.5 w-2 rounded-full bg-[#13181B]/15" />
+            <span className="h-1.5 w-2 rounded-full bg-[#13181B]/15" />
+          </div>
+
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -455,51 +872,140 @@ export default function Home() {
 {/* Final CTA */}
 <section
   id="contact"
-  className="px-8 pb-8 pt-6 md:px-14 lg:px-20 lg:pb-10"
+  className="bg-white px-6 py-10 md:px-14 md:py-14 lg:px-20"
 >
   <div className="mx-auto max-w-7xl">
-    <div className="relative overflow-hidden rounded-[32px] bg-[#07131D] px-7 py-14 md:px-10 md:py-16 lg:px-14 lg:py-20">
-      {/* Decorative background */}
-      <div className="absolute inset-0">
-        <div className="absolute right-[-30px] top-[-20px] h-[360px] w-[150px] -skew-x-[24deg] bg-[#CCD5DA]/15" />
+    <div className="relative min-h-[500px] overflow-hidden rounded-[36px] bg-[#061521] px-7 py-14 md:px-12 md:py-16 lg:px-16 lg:py-20">
 
-        <div className="absolute right-[85px] top-[60px] h-[300px] w-[120px] skew-x-[24deg] bg-gradient-to-b from-[#FD8973]/70 to-[#FFB565]/80" />
+      {/* Premium visual environment */}
 
-        <div className="absolute bottom-[-120px] right-[180px] h-[280px] w-[280px] rounded-full bg-[#003A6C]/20 blur-3xl" />
-      </div>
+{/* Deep blue atmosphere */}
+<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_55%,rgba(0,58,108,0.22),transparent_34%)]" />
 
-      <div className="relative z-10 max-w-3xl">
-        <div className="mb-5 flex items-center gap-3">
-          <span className="h-px w-7 bg-[#FD8973]" />
+{/* Warm atmosphere */}
+<div className="pointer-events-none absolute right-[-8%] top-[-20%] h-[560px] w-[560px] rounded-full bg-[#FFB565]/12 blur-[130px]" />
 
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/45">
+<div className="pointer-events-none absolute bottom-[-18%] right-[16%] h-[360px] w-[360px] rounded-full bg-[#FD8973]/10 blur-[120px]" />
+
+{/* Architectural glass planes */}
+<div className="pointer-events-none absolute right-[20%] top-[-30%] hidden h-[720px] w-[180px] rotate-[29deg] border-x border-white/[0.05] bg-gradient-to-b from-white/[0.025] via-[#FD8973]/[0.025] to-transparent lg:block" />
+
+<div className="pointer-events-none absolute right-[2%] top-[-25%] hidden h-[680px] w-[150px] rotate-[29deg] border-x border-[#FFB565]/[0.10] bg-gradient-to-b from-[#FFB565]/[0.04] to-transparent lg:block" />
+
+{/* Soft floor */}
+<div className="pointer-events-none absolute bottom-[-130px] right-[1%] hidden h-[260px] w-[620px] rotate-[-7deg] rounded-[50%] border border-[#FD8973]/10 bg-gradient-to-r from-[#003A6C]/12 via-[#FD8973]/8 to-[#FFB565]/12 blur-[1px] lg:block" />
+
+{/* W glow behind */}
+<div
+  className="pointer-events-none absolute bottom-[4%] right-[-5%] hidden opacity-[0.28] blur-[30px] lg:block"
+  style={{
+    maskImage:
+      "linear-gradient(to right, transparent 0%, black 22%, black 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to right, transparent 0%, black 22%, black 100%)",
+  }}
+>
+  <Image
+    src="/rowth-w-mark-v2.png"
+    alt=""
+    width={620}
+    height={430}
+    className="h-auto w-[540px]"
+  />
+</div>
+
+{/* Main W */}
+<div
+  className="pointer-events-none absolute bottom-[7%] right-[-4%] hidden opacity-[0.62] lg:block"
+  style={{
+    maskImage:
+      "linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 18%, black 38%, black 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 18%, black 38%, black 100%)",
+  }}
+>
+  <Image
+    src="/rowth-w-mark-v2.png"
+    alt=""
+    width={620}
+    height={430}
+    className="h-auto w-[535px] drop-shadow-[0_0_22px_rgba(255,181,101,0.12)]"
+  />
+</div>
+
+{/* Dark integration layer over W */}
+<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] bg-gradient-to-r from-[#061521] via-[#061521]/25 to-transparent lg:block" />
+
+{/* Fine warm rim */}
+<div className="pointer-events-none absolute bottom-[14%] right-[8%] hidden h-px w-[330px] bg-gradient-to-r from-transparent via-[#FD8973]/40 to-[#FFB565]/45 blur-[0.5px] lg:block" />
+
+{/* Mobile W atmosphere */}
+<div
+  className="pointer-events-none absolute bottom-[-30px] right-[-85px] lg:hidden"
+  style={{
+    maskImage:
+      "linear-gradient(to top left, black 0%, rgba(0,0,0,.45) 45%, transparent 78%)",
+    WebkitMaskImage:
+      "linear-gradient(to top left, black 0%, rgba(0,0,0,.45) 45%, transparent 78%)",
+  }}
+>
+  <div className="absolute inset-0 scale-110 bg-[#FD8973]/10 blur-[55px]" />
+
+  <Image
+    src="/rowth-w-mark-v2.png"
+    alt=""
+    width={380}
+    height={260}
+    className="relative h-auto w-[320px] opacity-[0.08]"
+  />
+</div>
+
+      {/* Content */}
+      <div className="relative z-10 flex min-h-[360px] max-w-3xl flex-col justify-center">
+
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px w-8 bg-[#FD8973]" />
+
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/55">
             Let&apos;s Talk
           </p>
         </div>
 
-        <h2 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-white md:text-5xl lg:text-6xl">
+        <h2 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
           Ready to build what&apos;s next?
         </h2>
 
-        <p className="mt-6 max-w-xl text-base leading-7 text-white/60">
+        <p className="mt-6 max-w-xl text-base leading-7 text-white/60 md:text-lg">
           Let&apos;s discuss your goals and explore how ROWTH can help you build
           measurable, sustainable growth.
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        {/* CTAs */}
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-6 py-3.5 text-sm font-semibold text-[#13181B] transition hover:opacity-90"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] via-[#FF9868] to-[#FFB565] px-8 py-4 text-sm font-semibold text-[#13181B] shadow-[0_12px_35px_rgba(253,137,115,0.28)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(253,137,115,0.36)]"
           >
-            Start a Conversation →
+            Let&apos;s Talk →
           </a>
 
           <a
             href="mailto:hello@rowth.io"
-            className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white hover:text-[#13181B]"
+            className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/[0.03] px-8 py-4 text-sm font-semibold text-white backdrop-blur-md transition duration-300 hover:border-white/50 hover:bg-white/10"
           >
-            Email ROWTH
+            hello@rowth.io
           </a>
+        </div>
+
+        {/* Bottom system cue */}
+        <div className="mt-12 flex flex-wrap items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+          <span>Strategy</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-[#FD8973]" />
+
+          <span>Systems</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-[#FFB565]" />
+
+          <span>Execution</span>
         </div>
       </div>
     </div>
