@@ -1,190 +1,104 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-type HeaderProps = {
-  dark?: boolean;
-};
+const navItems = [
+  { label: "Services", href: "/services" },
+  { label: "Approach", href: "/approach" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
-export default function Header({ dark = false }: HeaderProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function Header({ dark = false }: { dark?: boolean }) {
+  const pathname = usePathname();
 
   return (
     <header
-      className={`z-50 w-full ${
-        dark
-  ? "absolute left-0 top-0 z-50 w-full bg-gradient-to-b from-[#04111c]/75 via-[#04111c]/35 to-transparent"
-  : "relative z-50 w-full border-b border-[#13181B]/5 bg-white"
+      className={`relative z-50 w-full ${
+        dark ? "text-white" : "text-[#13181B]"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-14 lg:px-20">
-        {/* Logo */}
-        <a href="/" className="flex items-center">
-          <Image
-            src="/rowth-logo.png"
-            alt="ROWTH"
-            width={120}
-            height={40}
-            priority
-            className={`h-auto w-[105px] md:w-[120px] ${
-              dark ? "brightness-0 invert" : ""
-            }`}
-          />
-        </a>
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 md:px-10 lg:px-12 xl:px-16">
 
-        {/* Desktop Navigation */}
+          {/* LOGO */}
+<Link
+  href="/"
+  className="inline-flex items-center"
+  aria-label="ROWTH Home"
+>
+<Image
+  src="/rowth-logo.svg"
+  alt="ROWTH"
+  width={118}
+  height={36}
+  priority
+  className="h-auto w-[108px] md:w-[118px]"
+/>
+</Link>
+
+        {/* DESKTOP NAV */}
         <nav className="hidden items-center gap-8 md:flex">
-          <a
-            href="/services"
-            className={`text-sm font-medium transition ${
-              dark
-                ? "text-white/75 hover:text-white"
-                : "text-[#13181B]/65 hover:text-[#13181B]"
-            }`}
-          >
-            Services
-          </a>
+          {navItems.map((item) => {
+            const active =
+              pathname === item.href ||
+              (item.href !== "/" && pathname.startsWith(item.href + "/"));
 
-          <a
-            href="/approach"
-            className={`text-sm font-medium transition ${
-              dark
-                ? "text-white/75 hover:text-white"
-                : "text-[#13181B]/65 hover:text-[#13181B]"
-            }`}
-          >
-            Approach
-          </a>
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group relative py-2 text-sm font-semibold"
+              >
+                <span
+                  className={`relative z-10 transition duration-300 ${
+                    active
+                      ? "bg-gradient-to-r from-[#FD8973] to-[#FFB565] bg-clip-text text-transparent"
+                      : dark
+                      ? "text-white/70 group-hover:text-white"
+                      : "text-[#13181B]/70 group-hover:text-[#13181B]"
+                  }`}
+                >
+                  {item.label}
+                </span>
 
-          <a
-            href="/about"
-            className={`text-sm font-medium transition ${
-              dark
-                ? "text-white/75 hover:text-white"
-                : "text-[#13181B]/65 hover:text-[#13181B]"
-            }`}
-          >
-            About
-          </a>
-
-          <a
-            href="/contact"
-            className={`text-sm font-medium transition ${
-              dark
-                ? "text-white/75 hover:text-white"
-                : "text-[#13181B]/65 hover:text-[#13181B]"
-            }`}
-          >
-            Contact
-          </a>
+                <span
+                  className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-[#FD8973] to-[#FFB565] transition-all duration-300 ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Desktop CTA */}
-        <a
+        {/* CTA */}
+        <Link
           href="/contact"
-          className={`hidden rounded-full px-5 py-3 text-sm font-semibold transition md:inline-flex ${
+          className={`hidden items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition duration-300 md:inline-flex ${
             dark
-              ? "border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-[#13181B]"
-              : "bg-[#13181B] text-white hover:bg-[#003A6C]"
+              ? "border-white/20 bg-white/[0.04] text-white hover:border-[#FD8973]/50 hover:bg-white/[0.07]"
+              : "border-[#13181B]/15 text-[#13181B] hover:border-[#FD8973]/60"
           }`}
         >
           Let&apos;s Talk →
-        </a>
+        </Link>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          className={`flex h-11 w-11 items-center justify-center rounded-full border md:hidden ${
-            dark
-              ? "border-white/25 bg-white/5"
-              : "border-[#13181B]/15"
-          }`}
-        >
-          <span className="relative block h-4 w-5">
-            <span
-              className={`absolute left-0 top-0 h-px w-5 transition ${
-                dark ? "bg-white" : "bg-[#13181B]"
-              } ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
-            />
-
-            <span
-              className={`absolute left-0 top-[7px] h-px w-5 transition ${
-                dark ? "bg-white" : "bg-[#13181B]"
-              } ${menuOpen ? "opacity-0" : ""}`}
-            />
-
-            <span
-              className={`absolute left-0 top-[14px] h-px w-5 transition ${
-                dark ? "bg-white" : "bg-[#13181B]"
-              } ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
-            />
-          </span>
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div
-          className={`absolute left-0 top-20 w-full border-t shadow-sm md:hidden ${
-            dark
-              ? "border-white/10 bg-[#07131D]/95 text-white backdrop-blur-xl"
-              : "border-[#13181B]/5 bg-white text-[#13181B]"
-          }`}
-        >
-          <nav className="flex flex-col px-6 py-6">
-            <a
-              href="/services"
-              className={`border-b py-4 text-lg font-medium ${
-                dark ? "border-white/10" : "border-[#13181B]/10"
-              }`}
-            >
-              Services
-            </a>
-
-            <a
-              href="/approach"
-              className={`border-b py-4 text-lg font-medium ${
-                dark ? "border-white/10" : "border-[#13181B]/10"
-              }`}
-            >
-              Approach
-            </a>
-
-            <a
-              href="/about"
-              className={`border-b py-4 text-lg font-medium ${
-                dark ? "border-white/10" : "border-[#13181B]/10"
-              }`}
-            >
-              About
-            </a>
-
-            <a
-              href="/contact"
-              className={`border-b py-4 text-lg font-medium ${
-                dark ? "border-white/10" : "border-[#13181B]/10"
-              }`}
-            >
-              Contact
-            </a>
-
-            <a
-              href="/contact"
-              className={`mt-6 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold ${
-                dark
-                  ? "bg-white text-[#13181B]"
-                  : "bg-[#13181B] text-white"
-              }`}
-            >
-              Let&apos;s Talk →
-            </a>
-          </nav>
+        {/* MOBILE PLACEHOLDER */}
+        <div className="md:hidden">
+          <Link
+            href="/contact"
+            className={`rounded-full border px-4 py-2 text-xs font-semibold ${
+              dark
+                ? "border-white/15 text-white"
+                : "border-[#13181B]/15 text-[#13181B]"
+            }`}
+          >
+            Let&apos;s Talk
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }

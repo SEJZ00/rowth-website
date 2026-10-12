@@ -1,3 +1,4 @@
+import RevenueFlow from "@/components/RevenueFlow";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -98,43 +99,40 @@ export default function HomePage() {
   <Header dark />
 
   {/* Background atmosphere */}
-  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    <div className="absolute inset-0 bg-[#080D10]" />
+<div className="pointer-events-none absolute inset-0 overflow-hidden">
+  {/* Base */}
+  <div className="absolute inset-0 bg-[#080D10]" />
 
-    <div className="absolute left-[-8%] top-[8%] h-[420px] w-[420px] rounded-full bg-[#003A6C]/18 blur-[150px]" />
-    <div className="absolute right-[-6%] top-[2%] h-[460px] w-[460px] rounded-full bg-[#FD8973]/10 blur-[165px]" />
-    <div className="absolute bottom-[-18%] left-[18%] h-[360px] w-[360px] rounded-full bg-[#FFB565]/8 blur-[140px]" />
-    <div className="absolute bottom-[-20%] right-[18%] h-[420px] w-[420px] rounded-full bg-[#003A6C]/14 blur-[160px]" />
-
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_42%)]" />
-
-    <div className="absolute inset-0 opacity-[0.045] [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:84px_84px]" />
-
-    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.015),transparent_22%,transparent_78%,rgba(255,255,255,0.02))]" />
-  </div>
-
-{/* MOUNTAIN ATMOSPHERE */}
-<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] overflow-hidden lg:block">
+  {/* Mountain integrated into background */}
+<div className="absolute inset-y-0 right-0 hidden w-[62%] lg:block">
   <Image
     src="/rowth-mountain.png"
     alt=""
     fill
     priority
-    className="object-cover object-center opacity-[0.24] saturate-[0.75] contrast-[0.9]"
+    className="object-cover object-[62%_center] opacity-[0.38] saturate-[0.9] contrast-[1.02]"
   />
 
-  {/* Fade mountain into the hero */}
-  <div className="absolute inset-0 bg-[linear-gradient(90deg,#080D10_0%,rgba(8,13,16,0.94)_14%,rgba(8,13,16,0.60)_43%,rgba(8,13,16,0.28)_72%,rgba(8,13,16,0.45)_100%)]" />
+  {/* Blend into left side */}
+  <div className="absolute inset-0 bg-[linear-gradient(90deg,#080D10_0%,rgba(8,13,16,0.96)_14%,rgba(8,13,16,0.7)_34%,rgba(8,13,16,0.26)_68%,rgba(8,13,16,0.18)_100%)]" />
 
-  {/* Top + bottom fade */}
-  <div className="absolute inset-0 bg-[linear-gradient(180deg,#080D10_0%,transparent_18%,transparent_70%,#080D10_100%)]" />
+  {/* Fade vertically */}
+  <div className="absolute inset-0 bg-[linear-gradient(180deg,#080D10_0%,rgba(8,13,16,0.36)_18%,transparent_44%,rgba(8,13,16,0.18)_74%,#080D10_100%)]" />
 
-  {/* Very soft warm atmosphere */}
-  <div className="absolute right-[8%] top-[18%] h-[360px] w-[360px] rounded-full bg-[#FD8973]/7 blur-[150px]" />
-
-  <div className="absolute bottom-[8%] left-[28%] h-[280px] w-[280px] rounded-full bg-[#FFB565]/5 blur-[130px]" />
+  {/* Warm dawn glow */}
+  <div className="absolute right-[14%] top-[14%] h-[420px] w-[420px] rounded-full bg-[#FD8973]/14 blur-[170px]" />
+  <div className="absolute bottom-[8%] right-[24%] h-[320px] w-[320px] rounded-full bg-[#FFB565]/10 blur-[150px]" />
+  <div className="absolute bottom-[-4%] right-[36%] h-[280px] w-[280px] rounded-full bg-[#0D3B66]/10 blur-[140px]" />
 </div>
 
+  {/* Global atmosphere */}
+  <div className="absolute left-[-8%] top-[10%] h-[420px] w-[420px] rounded-full bg-[#003A6C]/14 blur-[160px]" />
+
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.025),transparent_40%)]" />
+
+  {/* Very subtle grid */}
+  <div className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:96px_96px]" />
+</div>
 
   {/* HERO CONTENT */}
   <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-5 pb-16 pt-20 sm:px-6 md:px-10 md:pb-20 md:pt-28 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:px-12 xl:px-16">
@@ -200,33 +198,7 @@ export default function HomePage() {
 
 </div>
 
-  {/* FLOW STRIP */}
-  <div className="relative border-t border-white/10 bg-white/[0.015]">
-    <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-6 md:px-14 lg:flex-row lg:items-center lg:justify-between lg:px-20">
-      <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/30">
-          Revenue flow
-        </p>
-
-        <p className="mt-2 text-2xl font-semibold leading-tight tracking-[-0.035em] text-white">
-          Growth you can track.
-          <span className="text-white/30">
-            {" "}
-            attribute. automate. scale.
-          </span>
-        </p>
-      </div>
-
-      <div className="overflow-hidden rounded-full border border-white/10 bg-white/[0.03] px-5 py-3">
-        <p className="whitespace-nowrap font-mono text-[10px] tracking-[0.16em] text-white/35 md:text-xs">
-          SEARCH → AD CLICK → FORM → CALL → CRM →{" "}
-          <span className="text-[#FFB565]">
-            REVENUE
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>
+<RevenueFlow />
 </section>
 
       {/* WHY ROWTH */}
@@ -351,20 +323,46 @@ export default function HomePage() {
                   </p>
                 </article>
 
-                <article className="rounded-[26px] bg-[#F0EEEB] p-6 text-[#13181B]">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/55">
-                    Infrastructure
-                  </p>
+                <article className="relative overflow-hidden rounded-[26px] bg-[#F0EEEB] p-6 text-[#13181B]">
+  {/* subtle atmosphere */}
+  <div className="pointer-events-none absolute -right-16 -top-20 h-[180px] w-[180px] rounded-full bg-[#FFB565]/10 blur-[80px]" />
 
-                  <h3 className="mt-4 text-xl font-semibold">
-                    Built on your stack.
-                  </h3>
+  <div className="relative">
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/55">
+      Infrastructure
+    </p>
 
-                  <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
-                    We connect the technology your business already uses
-                    instead of rebuilding everything.
-                  </p>
-                </article>
+    <h3 className="mt-4 text-xl font-semibold">
+      Built on your stack.
+    </h3>
+
+    <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
+      We connect the technology your business already uses instead of
+      rebuilding everything.
+    </p>
+
+    <div className="mt-6 flex flex-wrap gap-2">
+      {["Analytics", "CRM", "Ads", "Automation", "Call Tracking", "BI"].map(
+        (item) => (
+          <span
+            key={item}
+            className="rounded-full border border-[#13181B]/10 bg-white/70 px-3 py-1.5 text-[10px] font-medium text-[#13181B]/60"
+          >
+            {item}
+          </span>
+        )
+      )}
+    </div>
+
+    <div className="mt-6 flex items-center gap-2 border-t border-[#13181B]/10 pt-4">
+      <span className="h-2 w-2 rounded-full bg-[#FD8973]" />
+
+      <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#13181B]/35">
+        Connected infrastructure
+      </span>
+    </div>
+  </div>
+</article>
 
               </div>
             </div>

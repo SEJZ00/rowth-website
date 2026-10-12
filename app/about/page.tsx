@@ -1,3 +1,4 @@
+import InternalHeroAtmosphere from "@/components/InternalHeroAtmosphere";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -34,10 +35,12 @@ export default function AboutPage() {
       <Header dark />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 px-6 pb-20 pt-32 md:px-14 md:pb-28 md:pt-40 lg:px-20">
+      <section className="relative overflow-hidden  border-white/10 px-6 pb-20 pt-32 md:px-14 md:pb-28 md:pt-40 lg:px-20">
         <div className="pointer-events-none absolute -right-28 top-[-170px] h-[520px] w-[520px] rounded-full bg-[#FD8973]/10 blur-[160px]" />
 
         <div className="pointer-events-none absolute left-[25%] top-[-220px] h-[480px] w-[480px] rounded-full bg-[#003A6C]/20 blur-[170px]" />
+
+        <InternalHeroAtmosphere variant="about" />
 
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.75fr] lg:items-end">
@@ -210,91 +213,124 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PARTNERSHIP STATEMENT */}
-      <section className="relative overflow-hidden border-y border-white/10 px-6 py-24 md:px-14 md:py-32 lg:px-20">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FD8973]/8 blur-[160px]" />
+     {/* PARTNERSHIP */}
+     <section className="relative overflow-hidden bg-[#F6F3EE] px-6 py-24 text-[#13181B] md:px-14 md:py-32 lg:px-20">
+  {/* atmosphere */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute left-[8%] top-[18%] h-[320px] w-[320px] rounded-full bg-[#003A6C]/[0.06] blur-[140px]" />
 
-        <div className="relative mx-auto max-w-5xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/35">
+    <div className="absolute right-[8%] top-[10%] h-[360px] w-[360px] rounded-full bg-[#FD8973]/[0.08] blur-[150px]" />
+
+    <div className="absolute bottom-[-20%] right-[28%] h-[280px] w-[280px] rounded-full bg-[#FFB565]/[0.06] blur-[140px]" />
+
+    <div className="absolute right-[12%] top-[20%] hidden h-[220px] w-[220px] rounded-full border border-[#FD8973]/10 lg:block" />
+
+    <div className="absolute right-[8%] top-[14%] hidden h-[300px] w-[300px] rounded-full border border-[#FFB565]/10 lg:block" />
+  </div>
+
+  <div className="relative mx-auto max-w-7xl">
+    <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
+      {/* LEFT */}
+      <div>
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px w-7 bg-[#FD8973]" />
+
+          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#13181B]/45">
             Built for partnership
           </p>
-
-          <h2 className="mt-8 text-4xl font-semibold leading-[1.06] tracking-[-0.045em] md:text-6xl lg:text-7xl">
-            We work alongside your team,
-            <br />
-            <span className="text-white/35">not around it.</span>
-          </h2>
-
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-7 text-white/50">
-            The goal is not dependency. The goal is clarity, better systems,
-            stronger execution, and a business that understands how its growth
-            engine actually works.
-          </p>
         </div>
-      </section>
 
-      {/* SYSTEM STRIP */}
-      <section className="px-6 py-20 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl">
+        <h2 className="max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] md:text-6xl">
+          We work alongside
+          <br />
+          <span className="bg-gradient-to-r from-[#FD8973] to-[#FFB565] bg-clip-text text-transparent">
+            your team.
+          </span>
+        </h2>
+      </div>
 
-          <div className="rounded-[30px] border border-white/10 bg-[#11191E] p-7 md:p-10">
+      {/* RIGHT */}
+      <div className="lg:pl-8">
+        <p className="max-w-xl text-lg leading-8 text-[#13181B]/75">
+          Not around it. Not above it. The goal is to create clarity, stronger
+          systems, and better execution without making your business dependent
+          on us.
+        </p>
 
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
-                  The ROWTH System
-                </p>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-[20px] border border-[#13181B]/10 bg-white px-5 py-5 shadow-[0_10px_30px_rgba(19,24,27,0.04)]">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FD8973]">
+              Clarity
+            </span>
 
-                <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-                  Strategy. Systems. Execution.
-                </h2>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Tracking",
-                  "Automation",
-                  "Web",
-                  "SEO",
-                  "Paid Media",
-                  "Strategy",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-white/55"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-6 pb-20 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl rounded-[30px] bg-[#F0EEEB] px-7 py-12 text-[#13181B] md:px-10 lg:flex lg:items-center lg:justify-between">
-
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
-              Work with ROWTH
+            <p className="mt-3 text-sm leading-6 text-[#13181B]/65">
+              Clear priorities and decisions.
             </p>
-
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              Better systems create better decisions.
-            </h2>
           </div>
 
-          <a
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-8 py-4 text-sm font-semibold text-[#13181B] shadow-[0_14px_30px_rgba(253,137,115,0.20)] transition hover:-translate-y-0.5 lg:mt-0"
-          >
-            Let&apos;s Talk →
-          </a>
+          <div className="rounded-[20px] border border-[#13181B]/10 bg-white px-5 py-5 shadow-[0_10px_30px_rgba(19,24,27,0.04)]">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FFB565]">
+              Systems
+            </span>
+
+            <p className="mt-3 text-sm leading-6 text-[#13181B]/65">
+              Infrastructure your team can actually use.
+            </p>
+          </div>
+
+          <div className="rounded-[20px] border border-[#13181B]/10 bg-white px-5 py-5 shadow-[0_10px_30px_rgba(19,24,27,0.04)]">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FD8973]">
+              Execution
+            </span>
+
+            <p className="mt-3 text-sm leading-6 text-[#13181B]/65">
+              Work that moves from plan to outcome.
+            </p>
+          </div>
         </div>
-      </section>
+
+        <p className="mt-8 max-w-xl  border-[#13181B]/10 pt-6 text-sm leading-6 text-[#13181B]/50">
+          The goal is not dependency. The goal is a stronger growth system your
+          team understands and can keep improving.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+     {/* CTA */}
+     <section className="bg-[#F6F3EE] px-6 pb-20 pt-0 md:px-14 lg:px-20">
+     <div className="mx-auto max-w-7xl rounded-[30px] bg-white/45 px-7 py-12 text-[#13181B] shadow-[0_18px_50px_rgba(19,24,27,0.04)] md:px-10 lg:flex lg:items-center lg:justify-between">
+
+    <div>
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-px w-7 bg-[#FD8973]" />
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+          Work with ROWTH
+        </p>
+      </div>
+
+      <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+        Better systems create{" "}
+        <span className="bg-gradient-to-r from-[#FD8973] to-[#FFB565] bg-clip-text text-transparent">
+          better decisions.
+        </span>
+      </h2>
+
+      <p className="mt-4 max-w-xl text-sm leading-6 text-[#13181B]/55">
+        Bring clarity to the systems, decisions, and execution behind growth.
+      </p>
+    </div>
+
+    <a
+  href="/contact"
+  className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-8 py-4 text-sm font-semibold text-[#13181B] shadow-[0_14px_30px_rgba(253,137,115,0.22)] transition duration-300 hover:-translate-y-0.5 lg:mt-0"
+>
+  Let&apos;s Talk →
+</a>
+  </div>
+</section>
 
       <Footer />
     </main>

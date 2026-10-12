@@ -1,3 +1,5 @@
+import InternalHeroAtmosphere from "@/components/InternalHeroAtmosphere";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -51,7 +53,15 @@ export default function ServicesPage() {
         <div className="pointer-events-none absolute right-[-120px] top-[-160px] h-[520px] w-[520px] rounded-full bg-[#FD8973]/10 blur-[150px]" />
         <div className="pointer-events-none absolute left-[35%] top-[-200px] h-[480px] w-[480px] rounded-full bg-[#FFB565]/8 blur-[160px]" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <InternalHeroAtmosphere variant="services" />
+
+      {/* ROWTH W atmosphere */}
+<div className="pointer-events-none absolute right-[-6%] top-[5%] hidden h-[520px] w-[520px] lg:block">
+
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,137,115,0.08),transparent_62%)]" />
+</div>
+
+<div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-end">
 
             <div>
@@ -215,32 +225,76 @@ export default function ServicesPage() {
               </div>
             </article>
 
-            <article className="relative overflow-hidden rounded-[28px] bg-[#F0EEEB] p-7 text-[#13181B] md:p-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/55">
-                Infrastructure
-              </p>
+            <article className="relative overflow-hidden rounded-[26px] bg-[#F0EEEB] p-8 text-[#13181B]">
+  {/* subtle warm atmosphere */}
+  <div className="pointer-events-none absolute -right-16 -top-16 h-[200px] w-[200px] rounded-full bg-[#FFB565]/12 blur-[90px]" />
 
-              <h3 className="mt-5 max-w-sm text-2xl font-semibold tracking-[-0.03em]">
-                Built on the stack you already run.
-              </h3>
+  <div className="relative">
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/55">
+      Infrastructure
+    </p>
 
-              <p className="mt-3 max-w-md text-sm leading-6 text-[#13181B]/55">
-                We connect your tools instead of replacing them.
-              </p>
+    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em]">
+      Built on the stack you already run.
+    </h3>
 
-              <div className="mt-8 flex flex-wrap gap-2">
-                {["Analytics", "CRM", "Ads", "Automation", "Call Tracking", "BI"].map(
-                  (tool) => (
-                    <span
-                      key={tool}
-                      className="rounded-full border border-[#13181B]/10 bg-white px-4 py-2 text-xs font-medium"
-                    >
-                      {tool}
-                    </span>
-                  )
-                )}
-              </div>
-            </article>
+    <p className="mt-3 max-w-lg text-sm leading-6 text-[#13181B]/55">
+      We connect your existing tools so data can move cleanly across the
+      customer journey.
+    </p>
+
+    {/* Connected stack */}
+    <div className="mt-8">
+      <div className="grid grid-cols-3 gap-3">
+        {["Analytics", "CRM", "Automation"].map((item) => (
+          <div
+            key={item}
+            className="rounded-2xl border border-[#13181B]/10 bg-white/75 px-4 py-3 text-center text-xs font-semibold"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+
+      <div className="relative mx-auto h-8 w-[72%]">
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#FD8973] to-[#FFB565]" />
+
+        <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[#13181B]/10" />
+
+        <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FD8973]" />
+      </div>
+
+      <div className="rounded-2xl bg-[#11191E] px-5 py-4 text-white">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#FD8973]">
+              Connected system
+            </p>
+
+            <p className="mt-1 text-sm font-semibold">
+              One flow. Shared data.
+            </p>
+          </div>
+
+          <span className="text-lg text-[#FFB565]">→</span>
+        </div>
+      </div>
+
+      <div className="relative mx-auto h-8 w-px bg-gradient-to-b from-[#FD8973] to-[#FFB565]" />
+
+      <div className="grid grid-cols-3 gap-3">
+        {["Ads", "Call Tracking", "BI"].map((item) => (
+          <div
+            key={item}
+            className="rounded-2xl border border-[#13181B]/10 bg-white/75 px-4 py-3 text-center text-xs font-semibold"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</article>
 
           </div>
         </div>
