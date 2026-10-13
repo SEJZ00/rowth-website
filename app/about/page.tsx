@@ -1,3 +1,5 @@
+import AboutThinkingCube from "@/components/AboutThinkingCube";
+import AboutPrinciplesMobile from "@/components/AboutPrinciplesMobile";
 import InternalHeroAtmosphere from "@/components/InternalHeroAtmosphere";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -35,7 +37,7 @@ export default function AboutPage() {
       <Header dark />
 
       {/* HERO */}
-      <section className="relative overflow-hidden  border-white/10 px-6 pb-20 pt-32 md:px-14 md:pb-28 md:pt-40 lg:px-20">
+      <section className="relative overflow-hidden border-white/10 px-6 pb-16 pt-8 md:px-14 md:pb-24 md:pt-20 lg:px-20 lg:pt-16">
         <div className="pointer-events-none absolute -right-28 top-[-170px] h-[520px] w-[520px] rounded-full bg-[#FD8973]/10 blur-[160px]" />
 
         <div className="pointer-events-none absolute left-[25%] top-[-220px] h-[480px] w-[480px] rounded-full bg-[#003A6C]/20 blur-[170px]" />
@@ -43,7 +45,7 @@ export default function AboutPage() {
         <InternalHeroAtmosphere variant="about" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
 
             <div>
               <div className="mb-6 flex items-center gap-3">
@@ -54,7 +56,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] md:text-7xl lg:text-[84px]">
+              <h1 className="max-w-4xl text-[46px] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl md:text-7xl lg:text-[84px]">
                 Built for better
                 <br />
                 <span className="bg-gradient-to-r from-[#FD8973] to-[#FFB565] bg-clip-text text-transparent">
@@ -96,8 +98,10 @@ export default function AboutPage() {
               </span>
             </h2>
           </div>
+      
+          <AboutPrinciplesMobile />
 
-          <div className="mt-14 grid border-y border-[#13181B]/10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 hidden border-y border-[#13181B]/10 md:grid md:grid-cols-2 lg:grid-cols-4">
             {principles.map((item, index) => (
               <article
                 key={item.number}
@@ -146,7 +150,9 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <AboutThinkingCube />
+
+            <div className="hidden gap-4 md:grid md:grid-cols-2">
 
               <article className="rounded-[28px] border border-white/10 bg-[#11191E] p-7">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">

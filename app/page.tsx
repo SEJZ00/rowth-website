@@ -1,3 +1,5 @@
+import ServicesMobileSelector from "@/components/ServicesMobileSelector";
+import SystemCarousel from "@/components/SystemCarousel";
 import RevenueFlow from "@/components/RevenueFlow";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -95,16 +97,17 @@ export default function HomePage() {
       </div>
 
       {/* HERO */}
-      <section className="relative w-full max-w-full overflow-hidden border-b border-white/10 lg:min-h-[760px]">
+      <section className="relative w-full max-w-full overflow-hidden border-b border-white/10">
   <Header dark />
 
   {/* Background atmosphere */}
 <div className="pointer-events-none absolute inset-0 overflow-hidden">
   {/* Base */}
   <div className="absolute inset-0 bg-[#080D10]" />
+  <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(circle_at_75%_20%,rgba(253,137,115,0.08),transparent_42%),radial-gradient(circle_at_15%_55%,rgba(0,58,108,0.10),transparent_48%)] lg:hidden" />
 
   {/* Mountain integrated into background */}
-<div className="absolute inset-y-0 right-0 hidden w-[62%] lg:block">
+  <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
   <Image
     src="/rowth-mountain.png"
     alt=""
@@ -135,18 +138,18 @@ export default function HomePage() {
 </div>
 
   {/* HERO CONTENT */}
-  <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-5 pb-16 pt-20 sm:px-6 md:px-10 md:pb-20 md:pt-28 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:px-12 xl:px-16">
+  <div className="relative mx-auto grid w-full max-w-[1480px] gap-8 px-5 pb-10 pt-6 sm:px-6 sm:pt-8 md:px-8 md:pb-16 md:pt-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-8 lg:px-10 lg:pb-14 lg:pt-4 xl:px-12 xl:pb-16 xl:pt-6">
     {/* HERO COPY */}
     <div className="relative z-10 max-w-[760px]">
-      <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-sm">
+    <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-2 backdrop-blur-sm">
         <span className="h-2 w-2 rounded-full bg-[#FD8973]" />
 
-        <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/55">
-          Strategy × Systems × Growth
-        </p>
+        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/55 sm:text-[10px]">
+  Strategy × Systems × Growth
+</p>
       </div>
 
-      <h1 className="max-w-4xl text-[68px] font-semibold leading-[0.9] tracking-[-0.07em] sm:text-[84px] md:text-[108px] lg:text-[118px]">
+      <h1 className="max-w-4xl text-[56px] font-semibold leading-[0.92] tracking-[-0.06em] sm:text-[72px] md:text-[108px] lg:text-[118px]">
         Focus on
         <br />
 
@@ -164,37 +167,68 @@ export default function HomePage() {
         system that moves revenue forward.
       </p>
 
-      <div className="mt-9 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-        <a
-          href="/contact"
-          className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-8 py-4 text-sm font-semibold text-[#13181B] shadow-[0_18px_40px_rgba(253,137,115,0.24)] transition hover:-translate-y-0.5 sm:w-auto"
-        >
-          Start a conversation →
-        </a>
+      <div className="mt-7 flex w-full max-w-[340px] flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4">
+  <a
+    href="/contact"
+    className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-6 py-3.5 text-sm font-semibold text-[#13181B] shadow-[0_18px_40px_rgba(253,137,115,0.24)] transition hover:-translate-y-0.5 sm:w-auto"
+  >
+    Start a conversation →
+  </a>
 
-        <a
-          href="/services"
-          className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 text-sm font-semibold text-white/75 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/[0.06] sm:w-auto"
-        >
-          Explore the system
-        </a>
+  <a
+    href="/services"
+    className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-3.5 text-sm font-semibold text-white/75 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/[0.06] sm:w-auto"
+  >
+    Explore the system
+  </a>
+</div>
+
+      <div className="mt-8">
+  {/* MOBILE */}
+  <div className="flex w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-3 pr-[18%] md:hidden">
+    {[
+      {
+        title: "Attribution",
+        text: "Know what created the lead.",
+      },
+      {
+        title: "Automation",
+        text: "Move data and leads without manual work.",
+      },
+      {
+        title: "Revenue visibility",
+        text: "Connect activity to business outcomes.",
+      },
+    ].map((item) => (
+      <div
+        key={item.title}
+        className="w-[82%] max-w-[285px] shrink-0 snap-start rounded-[22px] border border-white/10 bg-white/[0.035] p-5"
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FD8973]">
+          {item.title}
+        </p>
+
+        <p className="mt-3 text-sm leading-6 text-white/55">
+          {item.text}
+        </p>
       </div>
+    ))}
+  </div>
 
-      <div className="mt-8 flex flex-wrap gap-2.5">
-        {["Attribution", "Automation", "Revenue visibility"].map((item) => (
-          <span
-            key={item}
-            className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium tracking-[0.02em] text-white/45"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
+  {/* DESKTOP */}
+  <div className="hidden flex-wrap gap-2.5 md:flex">
+    {["Attribution", "Automation", "Revenue visibility"].map((item) => (
+      <span
+        key={item}
+        className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium tracking-[0.02em] text-white/45"
+      >
+        {item}
+      </span>
+    ))}
+  </div>
+</div>
 
-{/* EMPTY RIGHT SPACE FOR MOUNTAIN */}
-<div className="relative z-10 hidden min-h-[560px] lg:block" />
-  
+</div>
 
 </div>
 
@@ -277,153 +311,160 @@ export default function HomePage() {
                 Decisions come from the complete picture.
               </p>
 
-              <div className="mt-10 grid gap-4 md:grid-cols-2">
+              <SystemCarousel />
 
-                <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
-                    Attribution
-                  </p>
-
-                  <h3 className="mt-4 text-xl font-semibold">
-                    Every lead has a source.
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-white/45">
-                    Calls, forms, and CRM records connected back to the
-                    campaign and channel that created them.
-                  </p>
-                </article>
-
-                <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFB565]">
-                    Measurement
-                  </p>
-
-                  <h3 className="mt-4 text-xl font-semibold">
-                    One source of truth.
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-white/45">
-                    Every growth channel reporting into the same framework.
-                  </p>
-                </article>
-
-                <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
-                    Automation
-                  </p>
-
-                  <h3 className="mt-4 text-xl font-semibold">
-                    Less manual work.
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-white/45">
-                    Automation and AI handle repetitive work while your team
-                    focuses on decisions.
-                  </p>
-                </article>
-
-                <article className="relative overflow-hidden rounded-[26px] bg-[#F0EEEB] p-6 text-[#13181B]">
-  {/* subtle atmosphere */}
-  <div className="pointer-events-none absolute -right-16 -top-20 h-[180px] w-[180px] rounded-full bg-[#FFB565]/10 blur-[80px]" />
-
-  <div className="relative">
-    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/55">
-      Infrastructure
+{/* DESKTOP GRID */}
+<div className="mt-10 hidden gap-4 md:grid md:grid-cols-2">
+  {/* ATTRIBUTION */}
+  <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
+      Attribution
     </p>
 
     <h3 className="mt-4 text-xl font-semibold">
-      Built on your stack.
+      Every lead has a source.
     </h3>
 
-    <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
-      We connect the technology your business already uses instead of
-      rebuilding everything.
+    <p className="mt-3 text-sm leading-6 text-white/45">
+      Calls, forms, and CRM records connected back to the campaign and channel
+      that created them.
+    </p>
+  </article>
+
+  {/* MEASUREMENT */}
+  <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FFB565]">
+      Measurement
     </p>
 
-    <div className="mt-6 flex flex-wrap gap-2">
-      {["Analytics", "CRM", "Ads", "Automation", "Call Tracking", "BI"].map(
-        (item) => (
-          <span
-            key={item}
-            className="rounded-full border border-[#13181B]/10 bg-white/70 px-3 py-1.5 text-[10px] font-medium text-[#13181B]/60"
-          >
-            {item}
-          </span>
-        )
-      )}
+    <h3 className="mt-4 text-xl font-semibold">
+      One source of truth.
+    </h3>
+
+    <p className="mt-3 text-sm leading-6 text-white/45">
+      Every growth channel reporting into the same framework.
+    </p>
+  </article>
+
+  {/* AUTOMATION */}
+  <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-6">
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
+      Automation
+    </p>
+
+    <h3 className="mt-4 text-xl font-semibold">
+      Less manual work.
+    </h3>
+
+    <p className="mt-3 text-sm leading-6 text-white/45">
+      Automation and AI handle repetitive work while your team focuses on
+      decisions.
+    </p>
+  </article>
+
+  {/* INFRASTRUCTURE */}
+  <article className="relative overflow-hidden rounded-[26px] bg-[#F0EEEB] p-6 text-[#13181B]">
+    <div className="pointer-events-none absolute -right-16 -top-20 h-[180px] w-[180px] rounded-full bg-[#FFB565]/10 blur-[80px]" />
+
+    <div className="relative">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/55">
+        Infrastructure
+      </p>
+
+      <h3 className="mt-4 text-xl font-semibold">
+        Built on your stack.
+      </h3>
+
+      <p className="mt-3 text-sm leading-6 text-[#13181B]/55">
+        We connect the technology your business already uses instead of
+        rebuilding everything.
+      </p>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {["Analytics", "CRM", "Ads", "Automation", "Call Tracking", "BI"].map(
+          (item) => (
+            <span
+              key={item}
+              className="rounded-full border border-[#13181B]/10 bg-white/70 px-3 py-1.5 text-[10px] font-medium text-[#13181B]/60"
+            >
+              {item}
+            </span>
+          )
+        )}
+      </div>
+
+      <div className="mt-6 flex items-center gap-2 border-t border-[#13181B]/10 pt-4">
+        <span className="h-2 w-2 rounded-full bg-[#FD8973]" />
+
+        <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#13181B]/35">
+          Connected infrastructure
+        </span>
+      </div>
     </div>
+  </article>
+</div>
 
-    <div className="mt-6 flex items-center gap-2 border-t border-[#13181B]/10 pt-4">
-      <span className="h-2 w-2 rounded-full bg-[#FD8973]" />
+</div>
+</div>
+</div>
+</section>
 
-      <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#13181B]/35">
-        Connected infrastructure
-      </span>
+            {/* SERVICES */}
+<section className="bg-[#F0EEEB] px-6 py-20 text-[#13181B] md:px-14 md:py-28 lg:px-20">
+  <div className="mx-auto max-w-7xl">
+    <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+      {/* INTRO */}
+      <div>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#FD8973]">
+          Services
+        </p>
+
+        <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] md:text-5xl lg:text-6xl">
+          Six disciplines.
+          <br />
+          One system.
+        </h2>
+
+        <p className="mt-5 max-w-md text-sm leading-6 text-[#13181B]/55">
+          Strategy, systems, and execution designed to work together, not
+          compete for attention.
+        </p>
+
+        <a
+          href="/services"
+          className="mt-7 inline-flex items-center text-sm font-semibold text-[#13181B]"
+        >
+          Explore all services →
+        </a>
+      </div>
+
+      <ServicesMobileSelector />
+
+      {/* DESKTOP SERVICES */}
+      <div className="hidden divide-y divide-[#13181B]/10 border-y border-[#13181B]/10 md:block">
+        {services.map((service) => (
+          <a
+            key={service.number}
+            href={service.href}
+            className="group grid gap-3 py-5 transition md:grid-cols-[55px_1fr_auto] md:items-center"
+          >
+            <span className="text-[10px] font-semibold text-[#FD8973]">
+              {service.number}
+            </span>
+
+            <h3 className="text-lg font-semibold tracking-[-0.02em] transition group-hover:translate-x-1">
+              {service.title}
+            </h3>
+
+            <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#13181B]/35">
+              {service.label}
+            </span>
+          </a>
+        ))}
+      </div>
     </div>
   </div>
-</article>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="bg-[#F0EEEB] px-6 py-20 text-[#13181B] md:px-14 md:py-28 lg:px-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
-
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#FD8973]">
-                Services
-              </p>
-
-              <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] md:text-5xl lg:text-6xl">
-                Six disciplines.
-                <br />
-                One system.
-              </h2>
-
-              <p className="mt-5 max-w-md text-sm leading-6 text-[#13181B]/55">
-                Strategy, systems, and execution designed to work together,
-                not compete for attention.
-              </p>
-
-              <a
-                href="/services"
-                className="mt-7 inline-flex items-center text-sm font-semibold text-[#13181B]"
-              >
-                Explore all services →
-              </a>
-            </div>
-
-            <div className="divide-y divide-[#13181B]/10 border-y border-[#13181B]/10">
-              {services.map((service) => (
-                <a
-                  key={service.number}
-                  href={service.href}
-                  className="group grid gap-3 py-5 transition md:grid-cols-[55px_1fr_auto] md:items-center"
-                >
-                  <span className="text-[10px] font-semibold text-[#FD8973]">
-                    {service.number}
-                  </span>
-
-                  <h3 className="text-lg font-semibold tracking-[-0.02em] transition group-hover:translate-x-1">
-                    {service.title}
-                  </h3>
-
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#13181B]/35">
-                    {service.label}
-                  </span>
-                </a>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </section>
+</section>
 
       {/* PROCESS */}
       <section className="px-6 py-20 md:px-14 md:py-28 lg:px-20">
@@ -482,101 +523,209 @@ export default function HomePage() {
       </section>
 
       {/* PARTNERSHIP STATEMENT */}
-      <section className="relative overflow-hidden border-y border-white/10 px-6 py-24 md:px-14 md:py-32 lg:px-20">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FD8973]/7 blur-[170px]" />
+<section className="relative overflow-hidden border-y border-white/10 px-6 py-24 md:px-14 md:py-32 lg:px-20">
+  {/* MOBILE ATMOSPHERE */}
+  <div className="pointer-events-none absolute inset-0 md:hidden">
+    <div className="absolute left-[-25%] top-[10%] h-[260px] w-[260px] rounded-full bg-[#003A6C]/10 blur-[110px]" />
+    <div className="absolute right-[-20%] top-[22%] h-[240px] w-[240px] rounded-full bg-[#FD8973]/10 blur-[120px]" />
+    <div className="absolute bottom-[-12%] left-[30%] h-[220px] w-[220px] rounded-full bg-[#FFB565]/8 blur-[100px]" />
+  </div>
 
-        <div className="relative mx-auto max-w-5xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/30">
-            Built for partnership
-          </p>
+  {/* DESKTOP ATMOSPHERE */}
+  <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FD8973]/7 blur-[170px] md:block" />
 
-          <h2 className="mt-8 text-4xl font-semibold leading-[1.04] tracking-[-0.05em] md:text-6xl lg:text-7xl">
-            Strategy without execution
-            <br />
-            <span className="text-white/30">is just a plan.</span>
-          </h2>
+  <div className="relative mx-auto max-w-5xl text-center">
+    <div className="mx-auto flex w-fit items-center gap-3">
+      <span className="h-px w-6 bg-[#FD8973]" />
 
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-7 text-white/50">
-            We work alongside your team, not around it. The goal is clarity,
-            better systems, and stronger execution.
-          </p>
+      <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-white/30 md:text-[10px]">
+        Built for partnership
+      </p>
 
-          <a
-            href="/about"
-            className="mt-8 inline-flex items-center text-sm font-semibold text-[#FFB565]"
-          >
-            About ROWTH →
-          </a>
-        </div>
-      </section>
+      <span className="h-px w-6 bg-[#FFB565]" />
+    </div>
+
+    <h2 className="mt-8 text-[38px] font-semibold leading-[1.02] tracking-[-0.05em] md:text-6xl lg:text-7xl">
+      Strategy without execution
+      <br />
+
+      <span className="bg-gradient-to-r from-[#FD8973] via-[#FD9A68] to-[#FFB565] bg-clip-text text-transparent">
+        is just a plan.
+      </span>
+    </h2>
+
+    <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-7 text-white/50 md:mt-8 md:text-base">
+      We work alongside your team, not around it. The goal is clarity, better
+      systems, and stronger execution.
+    </p>
+
+    {/* MOBILE SYSTEM CUE */}
+    <div className="mx-auto mt-8 grid max-w-sm grid-cols-3 gap-2 md:hidden">
+      <div className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2">
+        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/40">
+          Strategy
+        </span>
+      </div>
+
+      <div className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2">
+        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/40">
+          Systems
+        </span>
+      </div>
+
+      <div className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-2">
+        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/40">
+          Execution
+        </span>
+      </div>
+    </div>
+
+    <a
+      href="/about"
+      className="mt-8 inline-flex items-center text-sm font-semibold text-[#FFB565] transition hover:text-white"
+    >
+      About ROWTH →
+    </a>
+  </div>
+</section>
 
       {/* CONTACT CTA */}
-      <section className="px-6 py-20 md:px-14 md:py-24 lg:px-20">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[34px] bg-[#F0EEEB] text-[#13181B]">
 
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+{/* MOBILE CTA */}
+<section className="px-5 py-14 md:hidden">
+  <div className="relative overflow-hidden rounded-[28px] bg-[#F0EEEB] p-6 text-[#13181B]">
+    {/* subtle atmosphere */}
+    <div className="pointer-events-none absolute -right-20 -top-20 h-[200px] w-[200px] rounded-full bg-[#FD8973]/12 blur-[90px]" />
+    <div className="pointer-events-none absolute -bottom-20 -left-16 h-[180px] w-[180px] rounded-full bg-[#FFB565]/10 blur-[90px]" />
 
-            <div className="p-7 md:p-10 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
-                Contact
-              </p>
+    <div className="relative">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+        Contact
+      </p>
 
-              <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-5xl">
-                Let&apos;s talk about
-                <br />
-                what&apos;s next.
-              </h2>
+      <h2 className="mt-4 text-[36px] font-semibold leading-[1.02] tracking-[-0.05em]">
+        Let&apos;s talk about
+        <br />
+        what&apos;s next.
+      </h2>
 
-              <p className="mt-5 max-w-lg text-sm leading-6 text-[#13181B]/55">
-                Tell us where you are today, where you want to go, and
-                what&apos;s getting in the way.
-              </p>
+      <p className="mt-4 max-w-sm text-sm leading-6 text-[#13181B]/55">
+        Tell us where you are today, where you want to go, and what&apos;s
+        getting in the way.
+      </p>
 
-              <a
-                href="/contact"
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-[#13181B]"
-              >
-                Start a conversation →
-              </a>
+      <a
+        href="/contact"
+        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-6 py-3.5 text-sm font-semibold text-[#13181B] shadow-[0_14px_32px_rgba(253,137,115,0.18)]"
+      >
+        Start a conversation →
+      </a>
+
+      {/* NEXT STEPS */}
+      <div className="mt-7 border-t border-[#13181B]/10 pt-6">
+        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/40">
+          What happens next
+        </p>
+
+        <div className="mt-5 space-y-4">
+          {[
+            ["01", "Start with context"],
+            ["02", "Identify the opportunity"],
+            ["03", "Define the next step"],
+          ].map(([number, title]) => (
+            <div
+              key={number}
+              className="flex items-center gap-4"
+            >
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#FD8973]/25 bg-[#FD8973]/8 text-[9px] font-semibold text-[#FD8973]">
+                {number}
+              </span>
+
+              <span className="text-sm font-semibold text-[#13181B]/80">
+                {title}
+              </span>
             </div>
-
-            <div className="border-t border-[#13181B]/10 bg-white/55 p-7 md:p-10 lg:border-l lg:border-t-0 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/45">
-                What happens next
-              </p>
-
-              <div className="mt-7 divide-y divide-[#13181B]/10">
-                {[
-                  ["01", "Start with context"],
-                  ["02", "Identify the opportunity"],
-                  ["03", "Define the next step"],
-                ].map(([number, title]) => (
-                  <div
-                    key={number}
-                    className="grid grid-cols-[45px_1fr] py-5"
-                  >
-                    <span className="text-[10px] font-semibold text-[#FD8973]">
-                      {number}
-                    </span>
-
-                    <span className="text-sm font-semibold">
-                      {title}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="mailto:hello@rowth.io"
-                className="mt-8 inline-flex text-sm font-semibold text-[#13181B]"
-              >
-                hello@rowth.io →
-              </a>
-            </div>
-
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      {/* EMAIL */}
+      <div className="mt-7 border-t border-[#13181B]/10 pt-5">
+        <a
+          href="mailto:hello@rowth.io"
+          className="inline-flex items-center text-xs font-semibold text-[#13181B]/55 transition hover:text-[#13181B]"
+        >
+          hello@rowth.io →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* DESKTOP CTA */}
+<section className="hidden px-6 py-20 md:block md:px-14 md:py-24 lg:px-20">
+  <div className="mx-auto max-w-7xl overflow-hidden rounded-[34px] bg-[#F0EEEB] text-[#13181B]">
+    <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="p-7 md:p-10 lg:p-12">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+          Contact
+        </p>
+
+        <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-5xl">
+          Let&apos;s talk about
+          <br />
+          what&apos;s next.
+        </h2>
+
+        <p className="mt-5 max-w-lg text-sm leading-6 text-[#13181B]/55">
+          Tell us where you are today, where you want to go, and what&apos;s
+          getting in the way.
+        </p>
+
+        <a
+          href="/contact"
+          className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-[#13181B]"
+        >
+          Start a conversation →
+        </a>
+      </div>
+
+      <div className="border-t border-[#13181B]/10 bg-white/55 p-7 md:p-10 lg:border-l lg:border-t-0 lg:p-12">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/45">
+          What happens next
+        </p>
+
+        <div className="mt-7 divide-y divide-[#13181B]/10">
+          {[
+            ["01", "Start with context"],
+            ["02", "Identify the opportunity"],
+            ["03", "Define the next step"],
+          ].map(([number, title]) => (
+            <div
+              key={number}
+              className="grid grid-cols-[45px_1fr] py-5"
+            >
+              <span className="text-[10px] font-semibold text-[#FD8973]">
+                {number}
+              </span>
+
+              <span className="text-sm font-semibold">
+                {title}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="mailto:hello@rowth.io"
+          className="mt-8 inline-flex text-sm font-semibold text-[#13181B]"
+        >
+          hello@rowth.io →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       <Footer />
     </main>

@@ -1,3 +1,5 @@
+import ServicesExplorer from "@/components/ServicesExplorer";
+import ServicesSystemCube from "@/components/ServicesSystemCube";
 import InternalHeroAtmosphere from "@/components/InternalHeroAtmosphere";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -48,7 +50,7 @@ export default function ServicesPage() {
       <Header dark />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 px-6 pb-20 pt-32 md:px-14 md:pb-28 md:pt-40 lg:px-20">
+      <section className="relative overflow-hidden border-b border-white/10 px-6 pb-16 pt-8 md:px-14 md:pb-24 md:pt-20 lg:px-20 lg:pt-16">
         {/* Atmosphere */}
         <div className="pointer-events-none absolute right-[-120px] top-[-160px] h-[520px] w-[520px] rounded-full bg-[#FD8973]/10 blur-[150px]" />
         <div className="pointer-events-none absolute left-[35%] top-[-200px] h-[480px] w-[480px] rounded-full bg-[#FFB565]/8 blur-[160px]" />
@@ -62,7 +64,7 @@ export default function ServicesPage() {
 </div>
 
 <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+<div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
 
             <div>
               <div className="mb-6 flex items-center gap-3">
@@ -73,7 +75,7 @@ export default function ServicesPage() {
                 </p>
               </div>
 
-              <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] md:text-7xl lg:text-[88px]">
+              <h1 className="max-w-3xl text-[46px] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl md:text-7xl lg:text-[88px]">
                 Six disciplines.
                 <br />
                 <span className="bg-gradient-to-r from-[#FD8973] to-[#FFB565] bg-clip-text text-transparent">
@@ -120,8 +122,10 @@ export default function ServicesPage() {
             </p>
           </div>
 
+          <ServicesSystemCube />
+
           {/* System cards */}
-          <div className="mt-14 grid gap-4 md:grid-cols-2">
+          <div className="mt-14 hidden gap-4 md:grid md:grid-cols-2">
 
             <article className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#11191E] p-7 md:p-8">
               <div className="absolute right-[-60px] top-[-60px] h-40 w-40 rounded-full bg-[#FD8973]/10 blur-3xl" />
@@ -316,136 +320,13 @@ export default function ServicesPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[320px_1fr]">
-
-            {/* Service navigation */}
-            <div className="space-y-2">
-              {services.map((service, index) => (
-                <a
-                  key={service.number}
-                  href={service.href}
-                  className={`group flex items-center justify-between rounded-[18px] border px-5 py-4 transition ${
-                    index === 0
-                      ? "border-white bg-[#F0EEEB] text-[#13181B]"
-                      : "border-white/10 bg-white/[0.02] text-white hover:border-white/25 hover:bg-white/[0.05]"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`text-[10px] font-semibold ${
-                        index === 0
-                          ? "text-[#13181B]/35"
-                          : "text-white/25"
-                      }`}
-                    >
-                      {service.number}
-                    </span>
-
-                    <span className="text-sm font-semibold">
-                      {service.title}
-                    </span>
-                  </div>
-
-                  <span
-                    className={`text-[9px] font-semibold uppercase tracking-[0.18em] ${
-                      index === 0
-                        ? "text-[#003A6C]/50"
-                        : "text-white/25"
-                    }`}
-                  >
-                    {service.action}
-                  </span>
-                </a>
-              ))}
-            </div>
-
-            {/* Feature panel */}
-            <div className="relative min-h-[520px] overflow-hidden rounded-[30px] border border-white/10 bg-[#11191E] p-7 md:p-10">
-
-              <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-[320px] w-[320px] rounded-full bg-[#FD8973]/10 blur-[100px]" />
-
-              <div className="relative">
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FFB565]">
-                    01 / Connect
-                  </p>
-
-                  <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[10px] font-semibold text-emerald-300">
-                    Connected to the system
-                  </span>
-                </div>
-
-                <h3 className="mt-8 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-                  Tracking & Attribution
-                </h3>
-
-                <p className="mt-4 max-w-2xl text-base leading-7 text-white/55">
-                  Reliable measurement systems that connect marketing activity
-                  to business outcomes.
-                </p>
-
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {[
-                    "Analytics architecture",
-                    "Conversion tracking",
-                    "Attribution",
-                    "Call tracking",
-                    "Reporting systems",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-white/60"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                {/* System console */}
-                <div className="mt-10 overflow-hidden rounded-[22px] border border-white/10 bg-[#080D10]">
-                  <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FD8973]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#FFB565]" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-
-                    <span className="ml-3 font-mono text-[10px] text-white/30">
-                      rowth.system / tracking
-                    </span>
-                  </div>
-
-                  <div className="space-y-4 px-5 py-6 font-mono text-xs text-white/45">
-                    <p>
-                      <span className="text-[#FD8973]">→</span> form submit sent
-                      to analytics
-                    </p>
-
-                    <p>
-                      <span className="text-[#FFB565]">→</span> call matched to
-                      source: paid search
-                    </p>
-
-                    <p>
-                      <span className="text-emerald-300">→</span> CRM record
-                      updated with campaign
-                    </p>
-                  </div>
-                </div>
-
-                <a
-                  href="/services/tracking-attribution"
-                  className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FD8973] to-[#FFB565] px-7 py-3.5 text-sm font-semibold text-[#13181B] transition hover:-translate-y-0.5"
-                >
-                  Explore Tracking & Attribution →
-                </a>
-              </div>
-            </div>
-          </div>
+          <ServicesExplorer />
         </div>
       </section>
 
       {/* CTA */}
       <section className="px-6 pb-20 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl rounded-[30px] border border-white/10 bg-[#11191E] px-7 py-12 md:px-10 lg:flex lg:items-center lg:justify-between">
+      <div className="mx-auto max-w-7xl rounded-[30px] border border-[#13181B]/10 bg-[#F0EEEB] px-7 py-12 text-[#13181B] shadow-[0_18px_50px_rgba(0,0,0,0.08)] md:px-10 lg:flex lg:items-center lg:justify-between">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
               Not sure where to start?

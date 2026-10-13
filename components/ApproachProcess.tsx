@@ -81,100 +81,165 @@ export default function ApproachProcess() {
   const active = steps[activeIndex];
 
   return (
-    <section className="bg-[#F0EEEB] px-6 py-16 text-[#13181B] md:px-14 md:py-20 lg:px-20">
+    <section className="bg-[#F0EEEB] px-6 py-14 text-[#13181B] md:px-14 md:py-20 lg:px-20">
       <div className="mx-auto max-w-7xl">
 
-        {/* STEP TABS */}
-        <div className="grid gap-3 md:grid-cols-5">
-          {steps.map((step, index) => {
-            const isActive = activeIndex === index;
+        {/* MOBILE */}
+        <div className="md:hidden">
+          <div className="flex gap-2 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {steps.map((step, index) => {
+              const isActive = activeIndex === index;
 
-            return (
-              <button
-                key={step.number}
-                type="button"
-                onClick={() => setActiveIndex(index)}
-                className={`relative overflow-hidden rounded-[22px] border px-5 py-6 text-left transition duration-300 ${
-                  isActive
-                    ? "border-[#13181B] bg-[#13181B] text-white shadow-[0_18px_45px_rgba(19,24,27,0.14)]"
-                    : "border-[#13181B]/10 bg-white/80 text-[#13181B] hover:-translate-y-0.5 hover:border-[#FD8973]/40"
-                }`}
-              >
-                <span
-                  className={`text-[10px] font-semibold tracking-[0.16em] ${
-                    isActive ? "text-white/40" : "text-[#13181B]/35"
+              return (
+                <button
+                  key={step.number}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`shrink-0 rounded-full border px-4 py-2.5 text-[10px] font-semibold transition ${
+                    isActive
+                      ? "border-[#13181B] bg-[#13181B] text-white"
+                      : "border-[#13181B]/10 bg-white/70 text-[#13181B]/45"
                   }`}
                 >
-                  {step.number}
-                </span>
+                  {step.number} {step.title}
+                </button>
+              );
+            })}
+          </div>
 
-                <p className="mt-5 text-sm font-semibold">
-                  {step.title}
-                </p>
-
-                {isActive && (
-                  <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-[#FD8973] to-[#FFB565]" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* ACTIVE CONTENT */}
-        <div className="mt-8 overflow-hidden rounded-[30px] border border-[#13181B]/10 bg-white shadow-[0_24px_70px_rgba(19,24,27,0.06)]">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-
-            {/* LEFT */}
-            <div className="p-7 md:p-10 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+          <div className="mt-5 overflow-hidden rounded-[26px] border border-[#13181B]/10 bg-white">
+            <div className="p-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
                 Step {active.number} of 05
               </p>
 
-              <h2 className="mt-6 text-4xl font-semibold tracking-[-0.045em] md:text-5xl">
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">
                 {active.title}
               </h2>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-[#13181B]/60">
+              <p className="mt-4 text-sm leading-6 text-[#13181B]/60">
                 {active.description}
               </p>
 
-              <div className="mt-10 border-t border-[#13181B]/10 pt-7">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/45">
+              <div className="mt-6 border-t border-[#13181B]/10 pt-5">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#003A6C]/45">
                   Outcome
                 </p>
 
-                <p className="mt-4 max-w-xl text-lg font-semibold leading-7">
+                <p className="mt-3 text-base font-semibold leading-6">
                   {active.outcome}
                 </p>
               </div>
-            </div>
 
-            {/* RIGHT */}
-            <div className="border-t border-[#13181B]/10 bg-[#F7F5F2] p-7 md:p-10 lg:border-l lg:border-t-0 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/45">
-                Focus areas
-              </p>
+              <div className="mt-6 border-t border-[#13181B]/10 pt-5">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#003A6C]/45">
+                  Focus areas
+                </p>
 
-              <div className="mt-7 space-y-3">
-                {active.focusAreas.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-4 rounded-2xl border border-[#13181B]/[0.06] bg-white px-4 py-4"
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FD8973]/10 text-xs font-semibold text-[#FD8973]">
-                      ✓
-                    </span>
-
-                    <span className="text-sm font-semibold">
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {active.focusAreas.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[#13181B]/10 bg-[#F7F5F2] px-3 py-2 text-[10px] font-semibold text-[#13181B]/55"
+                    >
                       {item}
                     </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-
           </div>
         </div>
+
+        {/* DESKTOP */}
+        <div className="hidden md:block">
+          <div className="grid gap-3 md:grid-cols-5">
+            {steps.map((step, index) => {
+              const isActive = activeIndex === index;
+
+              return (
+                <button
+                  key={step.number}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`relative overflow-hidden rounded-[22px] border px-5 py-6 text-left transition duration-300 ${
+                    isActive
+                      ? "border-[#13181B] bg-[#13181B] text-white shadow-[0_18px_45px_rgba(19,24,27,0.14)]"
+                      : "border-[#13181B]/10 bg-white/80 text-[#13181B] hover:-translate-y-0.5 hover:border-[#FD8973]/40"
+                  }`}
+                >
+                  <span
+                    className={`text-[10px] font-semibold tracking-[0.16em] ${
+                      isActive ? "text-white/40" : "text-[#13181B]/35"
+                    }`}
+                  >
+                    {step.number}
+                  </span>
+
+                  <p className="mt-5 text-sm font-semibold">
+                    {step.title}
+                  </p>
+
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-[#FD8973] to-[#FFB565]" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-[30px] border border-[#13181B]/10 bg-white shadow-[0_24px_70px_rgba(19,24,27,0.06)]">
+            <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="p-7 md:p-10 lg:p-12">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+                  Step {active.number} of 05
+                </p>
+
+                <h2 className="mt-6 text-4xl font-semibold tracking-[-0.045em] md:text-5xl">
+                  {active.title}
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-base leading-7 text-[#13181B]/60">
+                  {active.description}
+                </p>
+
+                <div className="mt-10 border-t border-[#13181B]/10 pt-7">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#003A6C]/45">
+                    Outcome
+                  </p>
+
+                  <p className="mt-4 max-w-xl text-lg font-semibold leading-7">
+                    {active.outcome}
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-[#13181B]/10 bg-[#F7F5F2] p-7 md:p-10 lg:border-l lg:border-t-0 lg:p-12">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#003A6C]/45">
+                  Focus areas
+                </p>
+
+                <div className="mt-7 space-y-3">
+                  {active.focusAreas.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-4 rounded-2xl border border-[#13181B]/[0.06] bg-white px-4 py-4"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FD8973]/10 text-xs font-semibold text-[#FD8973]">
+                        ✓
+                      </span>
+
+                      <span className="text-sm font-semibold">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

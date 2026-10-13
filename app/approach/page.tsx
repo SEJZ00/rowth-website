@@ -1,3 +1,4 @@
+import ProcessCreatesMobile from "@/components/ProcessCreatesMobile";
 import ApproachProcess from "@/components/ApproachProcess";
 import InternalHeroAtmosphere from "@/components/InternalHeroAtmosphere";
 import Header from "@/components/Header";
@@ -9,7 +10,7 @@ export default function ApproachPage() {
       <Header dark />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 px-6 pb-20 pt-32 md:px-14 md:pb-28 md:pt-40 lg:px-20">
+      <section className="relative overflow-hidden border-b border-white/10 px-6 pb-16 pt-8 md:px-14 md:pb-24 md:pt-20 lg:px-20 lg:pt-16">
         <div className="pointer-events-none absolute -right-24 top-[-180px] h-[500px] w-[500px] rounded-full bg-[#FD8973]/10 blur-[150px]" />
 
         <div className="pointer-events-none absolute left-[30%] top-[-220px] h-[480px] w-[480px] rounded-full bg-[#003A6C]/20 blur-[170px]" />
@@ -17,7 +18,7 @@ export default function ApproachPage() {
         <InternalHeroAtmosphere variant="approach" />
 
         <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
             <div>
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-7 bg-[#FD8973]" />
@@ -27,7 +28,7 @@ export default function ApproachPage() {
                 </p>
               </div>
 
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] md:text-7xl lg:text-[84px]">
+              <h1 className="max-w-4xl text-[46px] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl md:text-7xl lg:text-[84px]">
                 From clarity to
                 <br />
 
@@ -83,7 +84,9 @@ export default function ApproachPage() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <ProcessCreatesMobile />
+
+          <div className="hidden gap-4 md:grid md:grid-cols-3">
             <article className="rounded-[26px] border border-white/10 bg-[#11191E] p-7">
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FD8973]">
                 Clarity
