@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 function escapeHtml(value: string) {
   return value
@@ -18,6 +17,16 @@ function isValidEmail(email: string) {
 
 export async function POST(request: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+
+if (!apiKey) {
+  return NextResponse.json(
+    { error: "Email service is not configured yet." },
+    { status: 503 }
+  );
+}
+
+const resend = new Resend(apiKey);
     const formData = await request.formData();
 
     const name = String(formData.get("name") ?? "").trim();
