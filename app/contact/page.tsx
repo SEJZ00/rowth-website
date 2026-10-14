@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -110,7 +111,13 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <ContactForm />
+            <Suspense
+  fallback={
+    <div className="min-h-[520px] rounded-[32px] bg-[#F0EEEB]" />
+  }
+>
+  <ContactForm />
+</Suspense>
 
             <div className="lg:hidden">
   <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/30">
