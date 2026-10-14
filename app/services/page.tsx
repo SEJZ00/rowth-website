@@ -324,6 +324,122 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="px-6 pb-16 md:px-14 md:pb-24 lg:px-20">
+  <div className="mx-auto max-w-7xl overflow-hidden rounded-[30px] border border-white/10 bg-[#11191E]">
+    <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
+      {/* INTRO */}
+      <div className="border-b border-white/10 p-8 md:p-10 lg:border-b-0 lg:border-r">
+        <div className="mb-5 flex items-center gap-3">
+          <span className="h-px w-8 bg-[#FD8973]" />
+
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FD8973]">
+            From services to solutions
+          </p>
+        </div>
+
+        <h2 className="max-w-lg text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl">
+          Need more than one service?
+        </h2>
+
+        <p className="mt-5 max-w-md text-sm leading-7 text-white/50 md:text-base">
+          Growth problems rarely fit into one discipline. ROWTH combines the
+          right capabilities into focused programs built around what your
+          business actually needs.
+        </p>
+
+        <a
+          href="/programs"
+          className="group mt-8 inline-flex items-center gap-3 text-sm font-semibold text-white"
+        >
+          Explore Growth Programs
+
+          <span className="text-[#FD8973] transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+      </div>
+
+      {/* PROGRAM PREVIEW */}
+      <div className="p-8 md:p-10">
+        <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/35">
+          Three ways to bring the work together
+        </p>
+
+        <div className="divide-y divide-white/10">
+          <a
+            href="/programs"
+            className="group grid gap-3 py-6 first:pt-0 md:grid-cols-[60px_1fr_auto] md:items-center"
+          >
+            <span className="text-xs font-semibold text-[#FD8973]">
+              01
+            </span>
+
+            <div>
+              <h3 className="text-xl font-semibold text-white transition group-hover:text-[#FFB565]">
+                Foundation
+              </h3>
+
+              <p className="mt-1 text-sm text-white/40">
+                Measurement, reporting, integrations, and visibility.
+              </p>
+            </div>
+
+            <span className="hidden text-white/25 transition group-hover:translate-x-1 group-hover:text-[#FD8973] md:block">
+              →
+            </span>
+          </a>
+
+          <a
+            href="/programs"
+            className="group grid gap-3 py-6 md:grid-cols-[60px_1fr_auto] md:items-center"
+          >
+            <span className="text-xs font-semibold text-[#FFB565]">
+              02
+            </span>
+
+            <div>
+              <h3 className="text-xl font-semibold text-white transition group-hover:text-[#FFB565]">
+                Performance
+              </h3>
+
+              <p className="mt-1 text-sm text-white/40">
+                Acquisition, conversion, and measurable growth.
+              </p>
+            </div>
+
+            <span className="hidden text-white/25 transition group-hover:translate-x-1 group-hover:text-[#FD8973] md:block">
+              →
+            </span>
+          </a>
+
+          <a
+            href="/programs"
+            className="group grid gap-3 py-6 last:pb-0 md:grid-cols-[60px_1fr_auto] md:items-center"
+          >
+            <span className="text-xs font-semibold text-[#FD8973]">
+              03
+            </span>
+
+            <div>
+              <h3 className="text-xl font-semibold text-white transition group-hover:text-[#FFB565]">
+                Enablement
+              </h3>
+
+              <p className="mt-1 text-sm text-white/40">
+                Automation, connected systems, and scalable operations.
+              </p>
+            </div>
+
+            <span className="hidden text-white/25 transition group-hover:translate-x-1 group-hover:text-[#FD8973] md:block">
+              →
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* CTA */}
       <section className="px-6 pb-20 md:px-14 lg:px-20">
       <div className="mx-auto max-w-7xl rounded-[30px] border border-[#13181B]/10 bg-[#F0EEEB] px-7 py-12 text-[#13181B] shadow-[0_18px_50px_rgba(0,0,0,0.08)] md:px-10 lg:flex lg:items-center lg:justify-between">
