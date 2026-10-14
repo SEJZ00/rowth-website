@@ -9,6 +9,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Approach", href: "/approach" },
   { label: "About", href: "/about" },
+  { label: "Programs", href: "/programs" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -41,7 +42,7 @@ export default function Header({ dark = false }: { dark?: boolean }) {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex lg:gap-8">
           {navItems.map((item) => {
             const active =
               pathname === item.href ||
